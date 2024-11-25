@@ -1,0 +1,45 @@
+<style>
+  .dropdown-menu h3:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+       
+</style>
+<div style="width: 100%;height: 100%;display: flex;justify-content: center;background-color: #E2E2E2;">
+    <div style="height: 400px; background-color: white; width: 70%; display: flex;flex-direction: column;align-items: center;margin: 30px 0px 30px 0px;border-radius: 5px;">
+        <div class="h">
+            <h1>RETURN ORDER</h1>
+            <hr>
+        </div>
+
+
+<div class="dropdown" style="display: flex;;">
+  <button style="width: 450px;" class="btn btn-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Choose a reason...
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style="width: 450px;">
+   
+    <h3 onclick="data('I bought the wrong item')">I bought the wrong item</h3>
+    <h3  onclick="data('I Have changed my mind')">I Have changed my mind</h3>
+    <h3  onclick="data('I found cheaper alternative')">I found cheaper alternative</h3>
+    <h3  onclick="data('I placed duplicate order')">I placed duplicate order</h3>
+    <h3  onclick="data('I received negetive feedback about this item')">I received negetive feedback about this item</h3>
+    <h3  onclick="data('Delivery takes too long')">Delivery takes too long</h3>
+    
+  </div>
+  <a href="/order/user-order-return-type?id={{orderId}}" class="btn btn-primary text-white" style="margin-left: 10px;margin-right: 10px;">Return</a>
+  <a href="/order/order-history" class="btn btn-success text-white">Back To Orders<a/>
+</div>
+
+    </div>
+    
+</div>
+<script>
+    function data(arg){
+ var res =   document.getElementById('dropdownMenuButton').innerHTML=arg
+     
+
+     console.log(arg)
+    }
+</script>

@@ -1,0 +1,735 @@
+
+<style>
+  .hh-grayBox {
+	background-color: #F8F8F8;
+	margin-bottom: 20px;
+	padding: 35px;
+  margin-top: 20px;
+}
+.pt45{padding-top:45px;}
+.order-tracking{
+	text-align: center;
+	width: 33.33%;
+	position: relative;
+	display: block;
+}
+.order-tracking .is-complete{
+	display: block;
+	position: relative;
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+	border: 0px solid #AFAFAF;
+	background-color: #f7be16;
+	margin: 0 auto;
+	transition: background 0.25s linear;
+	-webkit-transition: background 0.25s linear;
+	z-index: 2;
+}
+.order-tracking .is-complete:after {
+	display: block;
+	position: absolute;
+	content: '';
+	height: 14px;
+	width: 7px;
+	top: -2px;
+	bottom: 0;
+	left: 5px;
+	margin: auto 0;
+	border: 0px solid #AFAFAF;
+	border-width: 0px 2px 2px 0;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+.order-tracking.completed .is-complete{
+	border-color: #27aa80;
+	border-width: 0px;
+	background-color: #27aa80;
+}
+.order-tracking.completed .is-complete:after {
+	border-color: #fff;
+	border-width: 0px 3px 3px 0;
+	width: 7px;
+	left: 11px;
+	opacity: 1;
+}
+.order-tracking p {
+	color: #A4A4A4;
+	font-size: 16px;
+	margin-top: 8px;
+	margin-bottom: 0;
+	line-height: 20px;
+}
+.order-tracking p span{font-size: 14px;}
+.order-tracking.completed p{color: #000;}
+.order-tracking::before {
+	content: '';
+	display: block;
+	height: 3px;
+	width: calc(100% - 40px);
+	background-color: #f7be16;
+	top: 13px;
+	position: absolute;
+	left: calc(-50% + 20px);
+	z-index: 0;
+}
+.order-tracking:first-child:before{display: none;}
+.order-tracking.completed:before{background-color: #27aa80;}
+
+   .main{
+    display: flex;
+    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 100%;
+    background-color: #F0F5FF;
+   }
+   .left-sidebar{
+    margin-top: 20px;
+    margin-bottom: 100px;
+    width: 18%;
+    height: 75%;
+    background-color: white;
+
+   }
+
+   .right{
+    margin-top: 20px;
+    width: 70%;
+    height: 100%;
+  
+   }
+
+   ul li{
+    height:75px;
+    display: flex;
+     justify-content: center;
+    align-items: center;
+   
+   }
+   ul li a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+   }
+   ul li:hover{
+    background-color:blue;
+    color:#fff;
+   }
+   ul li a:hover{
+    color: white;
+   
+   }
+
+   ul li a svg{
+    margin-left: 5%;
+    margin-right: 5%;
+   
+   }
+   ul li a span{
+    font-size: 18px;
+    font-weight: 500;
+   }
+   .profile-image{
+    width: 100px;
+    height: 100px;
+   }
+  
+  #search{
+    width: 80%;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+  }
+  .content{
+    background-color:white;
+    border-radius: 5px;
+    margin-top: 20px;
+    min-height: 120px;
+  }
+  .sub{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 100px;
+    padding-top: 10px;
+  }
+  .proimg{
+    height: 75px;
+    
+  }
+  .img{
+    width: 20%;
+  }
+  .status{
+    
+  }
+  .price{
+ 
+  }
+  .review{
+    color: blue;
+  }
+  .address span{
+    color: black;
+  }
+  .track{
+    width: 25%;
+
+  }
+  .main{
+    display: flex;
+  }
+  .tick{
+    width: 10%;
+    border-radius: 50%;
+    background-color: #F7BE16;
+  }
+  .line{
+    width: 90%;
+
+  }
+  .l{
+    height: 5px;
+    width: 100%;
+    background-color:#F7BE16;
+  }
+  .track{
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+  }
+   @media only screen and  (max-width:750px){
+   . a h6{
+        display:none;
+    }
+    ul li a{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+   }
+   .track .tick{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30px;
+   }
+</style>
+
+
+<div class="main" style="background-color: #DEE2E5;display: flex; flex-direction: column;align-items: center;">
+    
+    
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+        <title>Order Details | Hyper - Responsive Bootstrap 5 Admin Dashboard</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+        <meta content="Coderthemes" name="author" />
+
+        <!-- App favicon -->
+        <link rel="shortcut icon" href="assets/images/favicon.ico">
+
+        <!-- Theme Config Js -->
+        <script src="assets/js/hyper-config.js"></script>
+
+        <!-- App css -->
+        <link href="assets/css/app-saas.min.css" rel="stylesheet" type="text/css" id="app-style" />
+
+        <!-- Icons css -->
+        <link href="assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <!-- Begin page -->
+        <div class="wrapper">
+
+            
+            <!-- ========== Topbar Start ========== -->
+            
+            <!-- ========== Topbar End ========== -->
+
+            <!-- ========== Left Sidebar Start ========== -->
+            
+            <!-- ========== Left Sidebar End ========== -->
+
+            <!-- ============================================================== -->
+            <!-- Start Page Content here -->
+            <!-- ============================================================== -->
+
+            <div class="content-page">
+                <div class="content">
+
+                    <!-- Start Content-->
+                    <div class="container-fluid">
+
+                  
+
+                   
+                            <div  style="width: 100%;display: flex;padding: 30px;justify-content: space-between;">
+        
+                             
+                {{!-- tracking                     --}}
+ 
+						  <div  style="width: 100%;height: 50%;display: flex;flex-direction: column;" >
+
+                        
+
+                        <div class="main" style="width: 90%;">
+                            
+
+                           <div class="track">
+                              <div class="tick tick1"> &nbsp;</div>
+                              <div class="line "> 
+                                  <div class="l line1">
+
+                                  </div>
+                              </div>
+                           </div>
+
+
+                           <div class="track">
+                            <div class="tick tick2"> &nbsp;</div>
+                              <div class="line"> 
+                                  <div class="l line2">
+
+                                  </div>
+                              </div>
+                           </div>
+
+
+                           <div class="track">
+                            
+                            <div class="tick tick3"> &nbsp;</div>
+                              <div class="line"> 
+                                  <div class="l line3">
+
+                                  </div>
+                              </div>
+                           </div>
+
+
+                           <div class="track" style="display: flex;justify-content: flex-start;">
+                            <div class=" tick tick4"> &nbsp;</div>
+              
+                           </div>
+                        
+                        </div>
+
+                        {{!-- ////////////////////////////// --}}
+                        <div class="main" style="width: 90%;">
+
+                            <span id="status" style="display: none;">{{orderData.status}}</span>
+                            
+
+                           <div class="track">
+                          Order Placed
+                           </div>
+
+
+                           <div class="track">
+                            Shipped
+                           </div>
+
+
+                           <div class="track">
+                            
+                              Out For Delivery
+                           </div>
+
+                           <div class="track cancel">
+                            
+                             Delivered
+                           </div>
+
+
+                           <div class="track" style="display: flex;justify-content: flex-start;">
+                            
+              
+                           </div>
+                        
+                        </div>
+                        {{!-- //////////////////// --}}
+
+                           
+
+
+                        </div>
+
+
+{{!-- tracking --}}
+                       <div class="cancel">
+                        <div class="dropdown">
+                            <a href="/order/admin-view-orders" style="color: white;" class="btn btn-primary">Update</a><br>
+                           
+      <style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+
+<div class="dropdown">
+
+  <div class="dropdown-content">
+   <a class="dropdown-item" href="#" onclick="changeStatus('Shipped','{{orderData._id}}')">Shipped</a>
+    <a class="dropdown-item" href="#" onclick="changeStatus('Delivered','{{orderData._id}}')">Delivered</a>
+    <a class="dropdown-item" href="#" onclick="changeStatus('Cancelled','{{orderData._id}}')">Cancelled</a>
+    <a class="dropdown-item" href="#" onclick="changeStatus('Placed','{{orderData._id}}')">Placed</a>
+    <a class="dropdown-item" href="#" onclick="changeStatus('Out For Delivery','{{orderData._id}}')">Out For Delivery</a>
+    <a class="dropdown-item" href="#" onclick="changeStatus('Returned','{{orderData._id}}')">Returned</a>
+  </div>
+</div>                      
+  <button id="changeStatus" class="btn  dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="border: 1px solid red;background-color: red;color: white;font-weight: 700;">
+     {{orderData.status}}
+     <input  style="display: none;border: 1px solid red;" type="text" name="" id="s" value="{{orderData.status}}" >
+  </button>
+  
+</div>
+                       </div>
+                               
+                            </div>
+                       
+				     
+                        <!-- end row -->    
+                        
+                        
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="card">
+                                    <div class="card-body" style="border: 1px solid grey;" >
+                                        <h6 class="header-title mb-3">Items from Order {{orderData._id}}</h6>
+            
+                                        <div class="table-responsive">
+                                            <table class="table mb-0" style="box-shadow: 1px 1px 10px grey;">
+                                                <thead class="table-light">
+                                                <tr>
+                                                    <th>Item</th>
+                                                    <th>Quantity</th>
+                                                    <th>Price</th>
+                                                    <th>Total</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                  {{#each orderData.products}}
+                                                <tr>
+                                                    <td><img style="width: 35px;height: 35px;" src="/assets/products/{{this.product.image}}" alt="">The Military Duffle Bag</td>
+                                                    <td>{{this.count}}</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{this.product.price}}</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{this.total}}</td>
+                                                </tr>
+                                                {{/each}}
+                                                
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- end table-responsive -->
+            
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+        
+                            <div class="col-lg-4" >
+                                <div class="card" style="border: 1px solid grey;">
+                                    <div class="card-body" style="box-shadow: 1px 1px 10px grey;">
+                                        <h4 class="header-title mb-3">ORDER SUMMERY</h4>
+            
+                                        <div class="table-responsive" >
+                                            <table class="table mb-0">
+                                                <thead class="table-light">
+                                                <tr>
+                                                    <th>Description</th>
+                                                    <th>Price</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                <tr>
+                                                    <td>Sub Total :</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{orderData.subtotal}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>CouponId</td>
+                                                    <td>{{orderData.couponCode}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Coupon Discount :</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{orderData.coupon}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ReferalCode  :</td>
+                                                    <td>{{orderData.referalCode}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Referal Discount :</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{orderData.referalDiscount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Shipping Charge :</td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>{{orderData.deliveryCharge}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Discount : </td>
+                                                    <td><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>{{orderData.discount}}</td>
+                                                </tr>
+                                                <tr>
+                                                    <th>Total :</th>
+                                                    <th><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>&nbsp;{{orderData.total}}</th>
+                                                </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <!-- end table-responsive -->
+            
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+        
+        
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card">
+                                    <div class="card-body" style="border: 1px solid grey;">
+                                        <h5 class="header-title mb-3">SHIPPING INFORMATION</h5>
+
+                                        <h5>{{orderData.address.firstname}}</h5>
+                                        
+                                        <address class="mb-0 font-14 address-lg">
+                                            {{orderData.address.address}} &nbsp;{{orderData.address.zipcode}}<br>
+                                            {{orderData.address.state}}&nbsp;,&nbsp;{{orderData.address.country}} <br>
+                                            <abbr title="Phone">P:&nbsp;</abbr>(+91){{orderData.address.phonenumber}} <br/>
+                                         
+                                        </address>
+            
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+        
+                            <div class="col-lg-4" style="border: 1px solid grey;">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="header-title mb-3">BILLING INFORMATION</h5>
+
+                                        <ul class="list-unstyled mb-0">
+                                            <li>
+                                                <p class="mb-2"><span class="fw-bold me-2">Payment Type:</span> </p>
+                                                <p class="mb-2"><span class="fw-bold me-2">{{orderData.payment}}</span></p>
+                                               
+                                            </li>
+                                        </ul>
+            
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+        
+                            <div class="col-lg-4">
+                                <div class="card" style="border: 1px solid grey;margin-top: 10px;">
+                                    <div class="card-body">
+                                        <h5 class="header-title mb-3">DELIVERY INFO</h5>
+            
+                                        <div class="text-center">
+                                            <i class="mdi mdi-truck-fast h2 text-muted"></i>
+                                            
+                                            <p class="mb-1"><b>Order ID :</b> {{orderData._id}}</p>
+                                            <p class="mb-0"><b>Payment Mode :</b> {{orderData.payment}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end col -->
+                        </div>
+                        <!-- end row -->
+        
+                        
+                    </div> <!-- container -->
+
+                </div> <!-- content -->
+
+                <!-- Footer Start -->
+         
+                <!-- end Footer -->
+
+            </div>
+
+            <!-- ============================================================== -->
+            <!-- End Page content -->
+            <!-- ============================================================== -->
+
+        </div>
+        <!-- END wrapper -->
+
+ 
+
+        <!-- Vendor js -->
+        <script src="assets/js/vendor.min.js"></script>
+
+        <!-- App js -->
+        <script src="assets/js/app.min.js"></script>
+
+    </body>
+</html>
+
+    </div>
+
+
+</div>
+<script>
+  function changeStatus(arg,orderId){
+    document.getElementById('changeStatus').innerHTML =arg
+    if(arg==='Cancelled'){
+         document.getElementById('changeStatus').style.backgroundColor='red'
+    }
+    if(arg==='Delivered'){
+         document.getElementById('changeStatus').style.backgroundColor='green'
+         document.getElementById('changeStatus').style.color='white'
+    }
+    if(arg==='In Progress'){
+         document.getElementById('changeStatus').style.backgroundColor='yellow'
+           document.getElementById('changeStatus').style.color='black'
+    }
+    if(arg==='Placed'){
+         document.getElementById('changeStatus').style.backgroundColor='green'
+            
+         document.getElementById('changeStatus').style.color='white'
+    }
+
+    console.log(orderId)
+  fetch(`https://digityx.shop/order/change-order-status?id=${orderId}&&status=${arg}`)
+  location.reload()
+  }
+
+
+
+
+ 
+</script>
+
+<script>
+    let status = document.getElementById("s").value
+       if(status=='Placed'){
+
+            document.querySelector(".tick1").style.backgroundColor='green'
+           
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+                
+         }
+
+         if(status=='Shipped'){
+           
+            document.querySelector(".tick1").style.backgroundColor='green'
+            document.querySelector(".line1").style.backgroundColor='green'
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            
+ 
+            document.querySelector(".tick2").style.backgroundColor='green'
+        
+            
+            document.querySelector('.tick2').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+   
+ 
+         }
+         if(status=='Out For Delivery'){
+           
+            document.querySelector(".tick1").style.backgroundColor='green'
+            document.querySelector(".line1").style.backgroundColor='green'
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            
+ 
+            document.querySelector(".tick2").style.backgroundColor='green'
+          document.querySelector(".line2").style.backgroundColor='green'
+            
+            document.querySelector('.tick2').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+              document.querySelector(".tick3").style.backgroundColor='green'
+              document.querySelector('.tick3').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+ 
+         }
+         if(status=='Delivered'){
+           
+            document.querySelector(".tick1").style.backgroundColor='green'
+            document.querySelector(".line1").style.backgroundColor='green'
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            
+ 
+            document.querySelector(".tick2").style.backgroundColor='green'
+          document.querySelector(".line2").style.backgroundColor='green'
+            
+            document.querySelector('.tick2').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+              document.querySelector(".tick3").style.backgroundColor='green'
+              document.querySelector('.tick3').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+                   document.querySelector(".line3").style.backgroundColor='green'
+                         document.querySelector(".tick4").style.backgroundColor='green' 
+                      document.querySelector('.tick4').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+         }
+         if(status=='Cancelled'){
+            
+            document.querySelector(".tick1").style.backgroundColor='green'
+            document.querySelector(".line1").style.backgroundColor='green'
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            
+ 
+            document.querySelector(".tick2").style.backgroundColor='green'
+          document.querySelector(".line2").style.backgroundColor='green'
+            
+            document.querySelector('.tick2').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+              document.querySelector(".tick3").style.backgroundColor='green'
+              document.querySelector('.tick3').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+                   document.querySelector(".line3").style.backgroundColor='green'
+                         document.querySelector(".tick4").style.backgroundColor='green' 
+                      document.querySelector('.tick4').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            document.querySelector(".cancel").innerHTML='Cancelled'
+             document.querySelector(".tick4").style.backgroundColor='red' 
+                      document.querySelector('.tick4').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>' 
+         }
+         if(status=='Returned'){
+
+            
+            document.querySelector(".tick1").style.backgroundColor='green'
+            document.querySelector(".line1").style.backgroundColor='green'
+            
+            document.querySelector('.tick1').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+            
+ 
+            document.querySelector(".tick2").style.backgroundColor='green'
+          document.querySelector(".line2").style.backgroundColor='green'
+            
+            document.querySelector('.tick2').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+              document.querySelector(".tick3").style.backgroundColor='green'
+              document.querySelector('.tick3').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+                   document.querySelector(".line3").style.backgroundColor='green'
+                         document.querySelector(".tick4").style.backgroundColor='green' 
+                      document.querySelector('.tick4').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>'
+              document.querySelector(".cancel").innerHTML='Returned'
+                 document.querySelector(".tick4").style.backgroundColor='orange' 
+                   document.querySelector('.tick4').innerHTML='<svg xmlns="http://www.w3.org/2000/svg" height="20" width="17.5" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f2f2f3" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/></svg>' 
+         }
+     
+</script>

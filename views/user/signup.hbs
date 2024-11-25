@@ -1,0 +1,184 @@
+<!-- Login 4 - Bootstrap Brain Component -->
+
+
+
+
+
+
+
+
+
+     <style>
+      label{
+        color: black;
+        font-weight: 600;
+      }
+     </style>
+         <div class="container">
+          <div class="row">SIGNUP FORM</div>
+          <div class="row" style="box-shadow: 1px 1px 10px grey;height: 80%;margin-top: 20px;margin-bottom: 20px;">
+            <div class="col-xl-6 col-md-12 col-sm-12" style="display: flex;justify-content: center;align-items: center;">
+               {{!-- <img style="width: 90%;height: 90%;" src="data:image/jpeg;base64,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" alt="">     --}}
+            </div>
+            <div class="col-xl-6 col-md-12 col-sm-12">
+              <form  id="signupForm" action="/user/otp/signup" method="post" >
+              <div class="row gy-3 gy-md-4 overflow-hidden">
+                <div class="col-12">
+                      <label for="email" class="form-label">Username
+                     <span class="text-danger">*</span></label>
+                     <span class="text-danger" id="usernameErr"></span>
+                  <br>{{#if err.username.path}}
+                   <span class="text-danger" id="usernameErr">
+                    {{err.username.msg}}</span>
+                    {{/if}}
+                  <input type="text" style="border-radius: 5px;border: 1px solid red; width: 100%;text-transform: none;" name="username" id="username" placeholder="Enter Email" >
+                </div>
+
+
+                <div class="col-12">
+                  <label for="email" class="form-label">Email
+                     <span class="text-danger">*</span></label>
+                     <span class="text-danger" id="emailErr"></span>
+                     <br>{{#if err.email.path}} <span class="text-danger" id="emailErr">{{err.email.msg}}</span>{{/if}}
+                     <br>{{#if emailFind}} <span class="text-danger">Email Already Exist</span>{{/if}}
+                  <input type="email" style="border-radius: 5px;border: 1px solid red; width: 100%;text-transform: none;" name="email" id="email" placeholder="name@example.com" >
+                </div>
+
+
+                <div class="col-12">
+                  <label for="password" class="form-label">Phone Number <span class="text-danger">*</span></label>
+                  <span class="text-danger" id="phonenumberErr"></span>
+                     <br>{{#if err.phonenumber.path}} <span class="text-danger" id="phonenumberErr">{{err.phonenumber.msg}}</span>{{/if}}
+                  <input type="number" style="border-radius: 5px;border: 1px solid red; width: 100%;text-transform: none;" name="phonenumber" id="phonenumber" value="" >
+                </div>
+                
+                <div class="col-12">
+                  <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                  <span class="text-danger" id="passwordErr"></span>
+                     <br>{{#if err.password.path}} <span class="text-danger" id="passwordErr">{{err.password.msg}}</span>{{/if}}
+                  <input type="password" style="border-radius: 5px;border: 1px solid red; width: 100%;text-transform: none;" name="password" id="password" value="" >
+                </div>
+
+                <div class="col-12">
+                  <label for="password" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+                   <span class="text-danger" id="confirmpasswordErr"></span>
+                     <br>{{#if err.confirmpassword.path}} <span class="text-danger" id="confirmpasswordErr">{{err.confirmpassword.msg}}</span>{{/if}}
+                  <input type="password" style="border-radius: 5px;border: 1px solid red; width: 100%;text-transform: none;" name="confirmpassword" id="confirmpassword" value="" >
+                </div>
+                <div class="col-12">
+                  <div class="d-grid">
+                    <button class="btn" style="width: 100%;background-color: red;color: white;" type="submit">Signup</button>
+                  </div>
+                   <div class="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end" style="margin-top: 20px;margin-bottom: 20px;">
+                  <a style="color: black;font-weight: 600;" href="/user_login" class="link-secondary text-decoration-none">Already have an account</a>&nbsp;&nbsp;
+                  <a style="color: black;font-weight: 600;" href="/user_forgotpassword" class="link-secondary text-decoration-none">Forgot password</a>
+                </div>
+                </div>
+              </div>
+            </form>
+          
+            </div>
+          </div>
+
+
+          <script>
+
+            document.getElementById("signupForm").addEventListener("submit",function(e){
+      
+
+              const username = document.getElementById("username").value;
+              const email = document.getElementById("email").value;
+              const phonenumber = document.getElementById("phonenumber").value;
+              const password = document.getElementById("password").value;
+              const confirmpassword = document.getElementById("confirmpassword").value;
+              const usernameErr = document.getElementById("usernameErr")
+              const emailErr = document.getElementById("emailErr")
+              const phonenumberErr = document.getElementById("phonenumberErr")
+              const passwordErr = document.getElementById("passwordErr")
+              const confirmpasswordErr = document.getElementById("confirmpasswordErr")
+              console.log(confirmpassword,password)
+              
+              
+/////////////////////////////////////////////////////
+                    if(username.length<4){
+                      e.preventDefault()
+                      usernameErr.innerHTML = 'Minimum 4 letters Required'
+                    }
+                    else{
+                      usernameErr.innerHTML = ''
+                    }
+                    if(username.length>12){
+                      e.preventDefault()
+                      usernameErr.innerHTML = 'Maximum  12 letters allowed'
+                    }
+                    else{
+                      usernameErr.innerHTML = ''
+                    }
+                    
+                    if(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(username)==true){
+                          e.preventDefault()
+                        usernameErr.innerHTML = 'Special Charector not Allowed'
+                              }
+                              else{
+                                usernameErr.innerHTML = ''
+                              }
+
+                              if(username==''){
+                                usernameErr.innerHTML =' Required'
+                              }
+          ///////////////////////////////////
+
+               if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)==false){
+                     emailErr.innerHTML='Invalid Email'
+               }
+////////////////////////////////////////
+
+if(phonenumber.length!=10){
+  e.preventDefault()
+  phonenumberErr.innerHTML = 'Invalid Phonenumber'
+}
+else{
+  phonenumber.innerHTML = ''
+}
+if(phonenumber==''){
+  e.preventDefault()
+  phonenumber.innerHTML = 'required'
+}
+else{
+  phonenumber.innerHTML = ''
+}
+/////////////////////////////////////////////
+
+if(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\/-]/.test(password)==false){
+                          e.preventDefault()
+                        passwordErr.innerHTML = 'Enter atleast One Special Charector'
+                              }
+                              else{
+                                   passwordErr.innerHTML = ''
+                              }
+                              if(/\s/.test(password)==true){
+                                 passwordErr.innerHTML = 'Spaces Are Not Allowed'
+                              }
+                              else{
+                                  passwordErr.innerHTML = ''
+                              }
+                              if(password.length<6){
+                                 passwordErr.innerHTML = 'Minumum 6 charectors Required'
+                              }
+
+                              //////////////////////////////////////
+
+
+                              if(password!==confirmpassword){
+                                confirmpasswordErr.innerHTML = 'Password Donot Match'
+                              }
+                              else{
+                                 confirmpasswordErr = ''
+                              }
+
+
+
+            })
+          </script>
+
+            

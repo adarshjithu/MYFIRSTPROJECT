@@ -1,0 +1,72 @@
+<style>
+    .razorpay{
+        width: 30%;height: 90%;background-color: white;border-radius: 10px;
+    }
+@media screen and (max-width: 800px) {
+.razorpay{
+    width: 50%;
+}
+}
+</style>
+<div style="width: 100%;height: 100vh;display: flex;justify-content: center;align-items: center;background-color: #162C45;">
+
+<div class="razorpay" >
+    <div style="width: 100%;height: 50%;">
+
+<img style="width: 100%;border-radius: 10px;" src="https://www.ecommerce-nation.com/wp-content/uploads/2019/02/razorpay.webp" alt="">
+    </div>
+
+
+<div style="width: 100%;display: flex;justify-content: center;align-items: center;margin-bottom: 100px;height: 50%;" >
+
+<button class="btn"  id="rzp-button1" style="width: 30%;background-color: red;color: white;font-weight: 600;">Pay</button>
+</div>
+</div>
+
+</div>
+<button  id="or" style="display: none;">{{order.id}}</button>
+<span id="firstname" style="display: none;">{{orderData.address.firstname}}</span>
+<span id="mobilenumber" style="display: none;">{{orderData.address.phonenumber}}</span>
+<span id="email" style="display: none;">{{orderData.address.email}}</span>
+{{!-- <span>{{orderData.address.email}}</span>
+<span>{{orderData.address.phonenumber}}</span> --}}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    const orderId = document.getElementById("or").innerHTML;
+    const firstname = document.getElementById("firstname").innerHTML;
+    const email = document.getElementById("email").innerHTML;
+    const mobilenumber = document.getElementById("mobilenumber").innerHTML;
+
+
+var options = {
+    "key": "rzp_test_REpsQUqylPJZxt", // Enter the Key ID generated from the Dashboard
+    "amount": 5000, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "DIGITYX", //your business name
+    "description": "Test Transaction",
+    "image": "",
+    "order_id": orderId, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
+    "callback_url": "https://digityx.shop/cart/razorpay",
+    "prefill": { //We recommend using the prefill parameter to auto-fill customer's contact information especially their phone number
+        "name": firstname, //your customer's name
+        "email": email,
+        "contact":mobilenumber //Provide the customer's phone number for better conversion rates 
+    },
+    "notes": {
+        "address": "Razorpay Corporate Office"
+    },
+    "theme": {
+        "color": "#3399cc"
+    },
+  
+};
+var rzp1 = new Razorpay(options);
+
+document.getElementById('rzp-button1').onclick = function(e){
+
+   let res =  rzp1.open();
+   console.log(rzp1)
+
+    e.preventDefault();
+}
+</script>

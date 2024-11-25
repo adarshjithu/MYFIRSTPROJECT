@@ -1,0 +1,99 @@
+<style>
+  .dropdown-menu h3:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+  .hidee{
+    
+    
+    display: flex;
+    flex-direction: column;padding: 35px;"
+  }
+  .hide{
+    display: none;
+  }
+
+      .checked{
+        color: rgb(27, 174, 27);
+      } 
+</style>
+<div style="width: 100%;height: 100%;display: flex;justify-content: center;background-color: #E2E2E2;flex-direction: column;justify-content: center;align-items: center;">
+    <div style="width: 60%;background-color: #f7444e;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <h2 style="color: white;">RETURN REQUEST</h2>
+ </div> 
+ {{#each orders.products}}      
+ <div style="width: 60%;background-color: white;margin-top: 10px;display: flex;justify-content: space-between;border-radius: 5px;box-shadow: 1px 1px 10px grey;">
+   <div class="" style="display: flex;flex-direction: column;padding: 35px;">
+    <span>{{this.product.name}}</span>
+         <div>
+                       
+                     <span class="fa fa-star checked"></span>
+
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                     </div>
+    <span>{{this.product.price}}</span>
+   </div>
+   <div style="padding: 35px;">
+    <img src="/assets/products/{{this.product.image}}" alt="" style="width: 100px;height: 100px;">
+   </div>
+ </div>  
+ {{/each}}     
+
+    
+    <div style="width: 60%;background-color: #f7444e;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <h3 style="color: white;">Where Do You Want To Save Money ?</h3>
+ </div>  
+ 
+    <div style="width: 60%;background-color: white;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <span style="color: black;">Total Amount&nbsp;&nbsp;:&nbsp;{{orders.subtotal}}</span>
+    
+ </div>  
+ 
+    <div style="width: 60%;background-color: white;margin-top: 10px;height: 50px;display: flex;align-items: center;margin-bottom: 10px;">
+    <button style="margin-left: 20px;" class="btn btn-success">Replace</button>
+    <button class="btn btn-primary" style="margin-left: 20px;" onclick="refund()">Refund</button>
+ </div>  
+ 
+  
+  <div  style="width: 60%;background-color: white;margin-top: 10px;display: flex;justify-content: space-between;margin-bottom: 10px;" >
+   <div class="hidee hide" id="hide" >
+      <form action="/order/user-order-return-type?id={{orders.subtotal}}&&orderId={{orders._id}}" method="post">
+           <div>
+
+            <input type="radio" name="money" id="" value="originalPayment" style="width: 20px;">
+          <label for="">Original Payment Mode</label>
+          <p></p>
+          
+           </div>
+           <div>
+
+            <input type="radio" name="money" id="" style="width: 20px;" value="giftCardWallet">
+          <label for="">Gift Cart Wallet <span style="background-color: green; color: white;">Fastest</span></label>  
+           </div>
+
+           <button type="submit" href="" class="btn btn-primary" style="margin-top: 20px;">SEND</button>
+        
+      </form>
+   </div>
+   
+ </div>       
+     
+
+    
+    
+</div>
+<script>
+    function refund(){
+        document.getElementById("hide").classList.toggle("hide")
+    }
+    function data(arg){
+ var res =   document.getElementById('dropdownMenuButton').innerHTML=arg
+     
+
+     console.log(arg)
+    }
+</script>

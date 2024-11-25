@@ -1,0 +1,579 @@
+<style>
+  .picZoomer{
+	position: relative;
+    /*margin-left: 40px;
+    padding: 15px;*/
+}
+.picZoomer-pic-wp{
+	position: relative;
+	overflow: hidden;
+    text-align: center;
+}
+.picZoomer-pic-wp:hover .picZoomer-cursor{
+	display: block;
+}
+.picZoomer-zoom-pic{
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+.picZoomer-pic{
+	/*width: 100%;
+	height: 100%;*/
+}
+.picZoomer-zoom-wp{
+	display: none;
+	position: absolute;
+	z-index: 999;
+	overflow: hidden;
+    border:1px solid #eee;
+    height: 460px;
+    margin-top: -19px;
+}
+.picZoomer-cursor{
+	display: none;
+	cursor: crosshair;
+	width: 100px;
+	height: 100px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	border-radius: 50%;
+	border: 1px solid #eee;
+	background-color: rgba(0,0,0,.1);
+}
+.picZoomCursor-ico{
+	width: 23px;
+	height: 23px;
+	position: absolute;
+	top: 40px;
+	left: 40px;
+	background: url(images/zoom-ico.png) left top no-repeat;
+}
+
+.my_img {
+    vertical-align: middle;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 100%;
+}
+.piclist li{
+    display: inline-block;
+    width: 90px;
+    height: 114px;
+    border: 1px solid #eee;
+}
+.piclist li img{
+    width: 97%;
+    height: auto;
+}
+
+/* custom style */
+.picZoomer-pic-wp,
+.picZoomer-zoom-wp{
+    border: 1px solid #eee;
+}
+
+
+
+.section-bg {
+    background-color: #fff1e0;
+}
+section {
+    padding: 60px 0;
+}
+.row-sm .col-md-6 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/*===pic-Zoom===*/
+._boxzoom .zoom-thumb {
+    width: 90px;
+    display: inline-block;
+    vertical-align: top;
+    margin-top: 0px;
+}
+._boxzoom .zoom-thumb ul.piclist {
+    padding-left: 0px;
+    top: 0px;
+}
+._boxzoom ._product-images {
+    width: 80%;
+    display: inline-block;
+}
+._boxzoom ._product-images .picZoomer {
+    width: 100%;
+}
+._boxzoom ._product-images .picZoomer .picZoomer-pic-wp img {
+    left: 0px;
+}
+._boxzoom ._product-images .picZoomer img.my_img {
+    width: 100%;
+}
+.piclist li img {
+    height:100px;
+    object-fit:cover;
+}
+
+/*======products-details=====*/
+._product-detail-content {
+    background: #fff;
+    padding: 15px;
+    border: 1px solid lightgray;
+}
+._product-detail-content p._p-name {
+    color: black;
+    font-size: 20px;
+    border-bottom: 1px solid lightgray;
+    padding-bottom: 12px;
+}
+.p-list span {
+    margin-right: 15px;
+}
+.p-list span.price {
+    font-size: 25px;
+    color: #318234;
+}
+._p-qty > span {
+    color: black;
+    margin-right: 15px;
+    font-weight: 500;
+}
+._p-qty .value-button {
+    display: inline-flex;
+    border: 0px solid #ddd;
+    margin: 0px;
+    width: 30px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    background: #fd7f34;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    color: #fff;
+}
+
+._p-qty .value-button {
+    border: 0px solid #fe0000;
+    height: 35px;
+    font-size: 20px;
+    font-weight: bold;
+}
+._p-qty input#number {
+    text-align: center;
+    border: none;
+    border-top: 1px solid #fe0000;
+    border-bottom: 1px solid #fe0000;
+    margin: 0px;
+    width: 50px;
+    height: 35px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+._p-add-cart {
+    margin-left: 0px;
+    margin-bottom: 15px;
+}
+.p-list {
+    margin-bottom: 10px;
+}
+._p-features > span {
+    display: block;
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+}
+._p-add-cart .buy-btn {
+    background-color: #fd7f34;
+    color: #fff;
+}
+._p-add-cart .btn {
+    text-transform: capitalize;
+    padding: 6px 20px;
+    /* width: 200px; */
+    border-radius: 52px;
+}
+._p-add-cart .btn {
+    margin: 0px 8px;
+}
+
+/*=========Recent-post==========*/
+.title_bx h3.title {
+    font-size: 22px;
+    text-transform: capitalize;
+    position: relative;
+    color: #fd7f34;
+    font-weight: 700;
+    line-height: 1.2em;
+}
+.title_bx h3.title:before {
+    content: "";
+    height: 2px;
+    width: 20%;
+    position: absolute;
+    left: 0px;
+    z-index: 1;
+    top: 40px;
+    background-color: #fd7f34;
+}
+.title_bx h3.title:after {
+    content: "";
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 40px;
+    background-color: #ffc107;
+}
+.common_wd .owl-nav .owl-prev, .common_wd .owl-nav .owl-next {
+    background-color: #fd7f34 !important;
+    display: block;
+    height: 30px;
+    width: 30px;
+    text-align: center;
+    border-radius: 0px !important;
+}
+.checked{
+  color: rgb(32, 196, 32);
+}
+.owl-nav .owl-next {
+    right:-10px;
+}
+.owl-nav .owl-prev, .owl-nav .owl-next {
+    top:50%;
+    position: absolute;
+}
+.common_wd .owl-nav .owl-prev i, .common_wd .owl-nav .owl-next i {
+    color: #fff;
+    font-size: 14px !important;
+    position: relative;
+    top: -1px;
+}
+.common_wd .owl-nav {
+    position: absolute;
+    top: -21%;
+    right: 4px;
+    width: 65px;
+}
+.owl-nav .owl-prev i, .owl-nav .owl-next i {
+    left: 0px;
+}
+._p-qty .decrease_ {
+    position: relative;
+    right: -5px;
+    top: 3px;
+}
+
+._p-qty .increase_ {
+    position: relative;
+    top: 3px;
+    left: -5px;
+}
+/*========box========*/
+.sq_box {
+    padding-bottom: 5px;
+    border-bottom: solid 2px #fd7f34;
+    background-color: #fff;
+    text-align: center;
+    padding: 15px 10px;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.item .sq_box span.wishlist {
+    right: 5px !important;
+}
+.sq_box span.wishlist {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.sq_box span {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px 10px;
+}
+.sq_box span.wishlist i {
+    color: #adb5bd;
+    font-size: 20px;
+}
+.sq_box h4 {
+    font-size: 18px;
+    text-align: center;
+    font-weight: 500;
+    color: #343a40;
+    margin-top: 10px;
+    margin-bottom: 10px !important;
+}
+.sq_box .price-box {
+    margin-bottom: 15px !important;
+}
+.sq_box .btn {
+    border-radius: 50px;
+    padding: 5px 13px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #fd7f34;
+    font-weight: 600;
+}
+.sq_box .price-box span.price {
+    text-decoration: line-through;
+    color: #6c757d;
+}
+.sq_box span {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0px 10px;
+}
+.sq_box .price-box span.offer-price {
+    color:#28a745;
+}
+.sq_box img {
+    object-fit: cover;
+    height: 150px !important;
+    margin-top: 20px;
+}
+.sq_box span.wishlist i:hover {
+    color: #fd7f34;
+}
+span{
+    font-family: sans-serif;
+    font-weight: ;
+    font-size: 18px;
+    color: black;
+}
+</style>
+<section id="services" class="services section-bg" style="background-color: white;box-shadow: 1px 1px  3px grey;">
+
+   <div class="container-fluid">
+    
+      <div class="row row-sm">
+         <div class="col-md-6 _boxzoom" >
+            <div class="zoom-thumb" style="">
+               <ul class="piclist">
+                  <li style="display: flex;justify-content: center;align-items: center;background-color: white;"><img src="/assets/products/{{image1}}" style="height: 80%;width: 80%;" alt=""></li>
+                  <li style="display: flex;justify-content: center;align-items: center;background-color: white;"><img src="/assets/products/{{image2}}"  style="height: 80%;width: 80%;" alt=""></li>
+                  <li style="display: flex;justify-content: center;align-items: center;background-color: white;"><img src="/assets/products/{{image3}}"   style="height: 80%;width: 80%;" alt=""></li>
+                  <li style="display: flex;justify-content: center;align-items: center;background-color: white;"><img src="/assets/products/{{image4}}"   style="height: 80%;width: 80%;" alt=""></li>
+              
+                 
+               </ul>
+            </div>
+            <div class="_product-images" style="box-shadow: 1px 1px 10px rgb(65, 56, 56);background-color: white;">
+               <div class="picZoomer" style="">
+                  <img class="my_img" src="/assets/products/{{product.image}}" alt="" style="width: 80%;margin-left: 20px;">
+               </div>
+            </div>
+         </div>
+         <div class="col-md-6" style="">
+            <div class="_product-detail-content" style="height: 95%;width: 100%;padding: 25px;line-height: 35px;border: none;">
+               <h2 style="color: black;font-weight: 500;">
+
+                {{product.name}} 
+               </h2>
+                                 <div class="_p-add-cart">
+                   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                  </div>
+               <div class="_p-price-box">
+                  <div class="p-list">
+                     <span class="price" style="color: black;"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="15" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#17191c" d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z"/></svg>{{product.discountedPrice}} </span>
+                     <span><i class="fa fa-inr"></i> <del style="color:grey;">{{product.price}}</del>&nbsp; 
+                     <span style="color: rgb(50, 186, 50);">
+                      {{product.offerDiscount}}% Off  </span>
+                     </span>
+                  </div>
+
+                  <div>
+                    <h4 id="status" style="color: orange;">{{product.status}}</h4>
+                  </div>
+                  <div>
+                    <span>Available Offers</span><br>
+                    <span> <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ed4912" d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg> <span style="color: red;">{{product.offerType}} </span> You can save &#8377; {{product.totalDiscount}} Money</span><br>
+                    <span> <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ed4912" d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg> <span style="color: red;">Category Offer </span> You can save &#8377; {{product.categoryDiscount}} Money</span>
+                  </div>
+                  <div class="_p-features">
+                     <span> Description  </span>
+                     <span>
+
+                     {{product.description}}                       
+                     </span>
+                  </div>
+{{!-- 
+          <a class="btn"  href="/cart/buy-now?proId={{product._id}}"  style="margin-right: 20px;color: white;border: none;background-color: blue;"> Buy now </a> --}}
+          <a id="addToCart" onclick="addtocart('{{product._id}}')" class="btn btn-primary " style="color: white;background-color: red;border: none;"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="15.75" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#eceff3" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> &nbsp;&nbsp;Add to cart </a>
+          
+
+                  <div>
+                   
+                  </div>
+
+                  
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</section>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+  /*!     
+        jquery.picZoomer.js
+        v 1.0
+        David
+        http://www.CodingSerf.com
+*/
+
+//放大镜控件
+;(function($){
+	$.fn.picZoomer = function(options){
+		var opts = $.extend({}, $.fn.picZoomer.defaults, options), 
+			$this = this,
+			$picBD = $('<div class="picZoomer-pic-wp"></div>').css({'width':opts.picWidth+'px', 'height':opts.picHeight+'px'}).appendTo($this),
+			$pic = $this.children('img').addClass('picZoomer-pic').appendTo($picBD),
+			$cursor = $('<div class="picZoomer-cursor"><i class="f-is picZoomCursor-ico"></i></div>').appendTo($picBD),
+			cursorSizeHalf = {w:$cursor.width()/2 ,h:$cursor.height()/2},
+			$zoomWP = $('<div class="picZoomer-zoom-wp"><img src="" alt="" class="picZoomer-zoom-pic"></div>').appendTo($this),
+			$zoomPic = $zoomWP.find('.picZoomer-zoom-pic'),
+			picBDOffset = {x:$picBD.offset().left,y:$picBD.offset().top};
+
+		
+		opts.zoomWidth = opts.zoomWidth||opts.picWidth;
+		opts.zoomHeight = opts.zoomHeight||opts.picHeight;
+		var zoomWPSizeHalf = {w:opts.zoomWidth/2 ,h:opts.zoomHeight/2};
+
+		//初始化zoom容器大小
+		$zoomWP.css({'width':opts.zoomWidth+'px', 'height':opts.zoomHeight+'px'});
+		$zoomWP.css(opts.zoomerPosition || {top: 0, left: opts.picWidth+30+'px'});
+		//初始化zoom图片大小
+		$zoomPic.css({'width':opts.picWidth*opts.scale+'px', 'height':opts.picHeight*opts.scale+'px'});
+
+		//初始化事件
+		$picBD.on('mouseenter',function(event){
+			$cursor.show();
+			$zoomWP.show();
+			$zoomPic.attr('src',$pic.attr('src'))
+		}).on('mouseleave',function(event){
+			$cursor.hide();
+			$zoomWP.hide();
+		}).on('mousemove', function(event){
+			var x = event.pageX-picBDOffset.x,
+				y = event.pageY-picBDOffset.y;
+
+			$cursor.css({'left':x-cursorSizeHalf.w+'px', 'top':y-cursorSizeHalf.h+'px'});
+			$zoomPic.css({'left':-(x*opts.scale-zoomWPSizeHalf.w)+'px', 'top':-(y*opts.scale-zoomWPSizeHalf.h)+'px'});
+
+		});
+		return $this;
+
+	};
+	$.fn.picZoomer.defaults = {
+        picHeight: 460,
+		scale: 2.5,
+		zoomerPosition: {top: '0', left: '380px'},
+
+		zoomWidth: 400,
+		zoomHeight: 460
+	};
+})(jQuery); 
+
+
+
+$(document).ready(function () {
+     $('.picZoomer').picZoomer();
+    $('.piclist li').on('click', function (event) {
+        var $pic = $(this).find('img');
+        $('.picZoomer-pic').attr('src', $pic.attr('src'));
+    });
+   
+  var owl = $('#recent_post');
+              owl.owlCarousel({
+                margin:20,
+                dots:false,
+                nav: true,
+                navText: [
+                  "<i class='fa fa-chevron-left'></i>",
+                  "<i class='fa fa-chevron-right'></i>"
+                ],
+                autoplay: true,
+                autoplayHoverPause: true,
+                responsive: {
+                  0: {
+                    items: 2
+                  },
+                  600: {
+                    items:3
+                  },
+                  1000: {
+                    items:5
+                  },
+                  1200: {
+                    items:4
+                  }
+                }
+  });    
+  
+        $('.decrease_').click(function () {
+            decreaseValue(this);
+        });
+        $('.increase_').click(function () {
+            increaseValue(this);
+        });
+        function increaseValue(_this) {
+            var value = parseInt($(_this).siblings('input#number').val(), 10);
+            value = isNaN(value) ? 0 : value;
+            value++;
+            $(_this).siblings('input#number').val(value);
+        }
+
+        function decreaseValue(_this) {
+            var value = parseInt($(_this).siblings('input#number').val(), 10);
+            value = isNaN(value) ? 0 : value;
+            value < 1 ? value = 1 : '';
+            value--;
+            $(_this).siblings('input#number').val(value);
+        }
+    });
+
+</script>
+
+
+  <script>
+
+
+  function addtocart(proId){
+    console.log(proId)
+    fetch(`https://digityx.shop/cart/addtocart?proId=${proId}`).then(function(res){
+     return res.json()
+     
+  }).then((data)=>{
+    document.querySelector(".badge").innerHTML=data.count;
+      
+  }) 
+    
+
+  }
+
+
+</script>
+<script>
+    let status = document.getElementById('status').innerHTML
+if(status == 'Out Of Stock'){
+    document.getElementById("addToCart").innerHTML = 'Notify Me'
+}
+
+</script>
+

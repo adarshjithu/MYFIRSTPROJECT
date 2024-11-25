@@ -1,0 +1,239 @@
+    <style>
+        .icon-hover:hover {
+  border-color: #3b71ca !important;
+  background-color: white !important;
+  color: #3b71ca !important;
+}
+
+.icon-hover:hover i {
+  color: #3b71ca !important;
+}
+* {box-sizing: border-box;}
+
+.img-zoom-container {
+  position: relative;
+}
+
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 40px;
+  height: 40px;
+}
+
+.img-zoom-result {
+  border: 1px solid #d4d4d4;
+  /*set the size of the result div:*/
+  width: 300px;
+  height: 300px;
+}
+    </style>
+
+ 
+<!-- content -->
+<section class="py-5" style="background-color:white;border-top: 1px solid rgb(208, 196, 196);">
+  <div class="container">
+    <div class="row gx-5">
+      <aside class="col-lg-6">
+
+        {{!-- image --}}
+        <div class="border rounded-4 mb-3 d-flex justify-content-center" style="box-shadow: 1px 1px 3px rgb(154, 141, 141);">
+          <div style="height: 350px; display: flex; justify-content: center; align-items: center;">
+
+       
+            <img onmouseover="over()" onmouseout="out()" id="myimage" style="max-width: 100%; max-height: 300px;  margin: auto;" class="rounded-4 fit main-image" src="/assets/products/{{product.image}}" />
+          
+          </div>
+        </div>
+          {{!-- image --}}
+        <div  class=" mb-3" style="display: flex;justify-content: space-around; max-width: 500px;" >
+              <a onmouseenter="changeImage(`{{product.image}}`)"  id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{product.image}}" />
+          </a>
+          {{!-- subimages --}}
+    
+          <a style="text-decoration: none;" onmouseenter="changeImage(`{{image1}}`)"   id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{image1}}" />
+          </a>
+          <a onmouseenter="changeImage(`{{image2}}`)"   id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{image2}}" />
+          </a>
+         
+          <a onmouseenter="changeImage(`{{image3}}`)"  id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{image3}}" />
+          </a>
+         
+          <a onmouseenter="changeImage(`{{image4}}`)"  id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{image4}}" />
+          </a>
+         
+          <a  onmouseenter="changeImage(`{{image5}}`)" id="subImage" data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image"  class="item-thumb">
+            <img id="img" width="60" height="60" class="rounded-2" src="/assets/products/{{image5}}" />
+          </a>
+         
+        </div>
+        <!-- thumbs-wrap.// -->
+        <!-- gallery-wrap .end// -->
+      </aside>
+      <main class="col-lg-6 main-pro" 
+      {{!-- id="myresult" --}}
+       >
+    
+        <div class="ps-lg-3" >
+          <h3 class="title text-dark" style="color: black;">
+           {{product.name}}
+          </h3>
+          <div class="d-flex flex-row my-3">
+            <div class="text-warning mb-1 me-2">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ms-1">
+                4.5
+              </span>
+            </div>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <span class="text-success ms-2">{{product.status}}</span><br>
+            
+          </div>
+            <span></span>
+
+          <div class="mb-3">
+            <span class="h5" style="color: black;">&#8377;{{product.discountedPrice}}</span>
+            <span class="h5" style="text-decoration: line-through;margin-left: 20px;opacity: 0.7;font-size: 18px;">&#8377;{{product.price}}</span>
+            <br><h6 style="color: black;font-size: 16px;">Available Offers</h6>
+            <span style="color:black;padding-right: 10px;">  <svg xmlns="http://www.w3.org/2000/svg" height="14" width="12.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ed4912" d="M0 80V229.5c0 17 6.7 33.3 18.7 45.3l176 176c25 25 65.5 25 90.5 0L418.7 317.3c25-25 25-65.5 0-90.5l-176-176c-12-12-28.3-18.7-45.3-18.7H48C21.5 32 0 53.5 0 80zm112 32a32 32 0 1 1 0 64 32 32 0 1 1 0-64z"/></svg>{{product.offerType}}&nbsp;
+
+            
+            </span>
+            <span style="color: black;">You Can Save &#8377;{{product.totalDiscount}} Money</span>
+            
+           
+          </div>
+
+          <p style="red">
+           {{product.description}}
+          </p>
+
+          
+
+          <hr />
+
+          <a class="btn"  href="/cart/buy-now?proId={{product._id}}"  style="margin-right: 20px;color: white;border: none;background-color: blue;"> Buy now </a>
+          <a onclick="addtocart('{{product._id}}')" class="btn btn-primary " style="color: white;background-color: red;border: none;"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="15.75" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#eceff3" d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg> &nbsp;&nbsp;Add to cart </a>
+          
+
+
+
+
+        </div>
+      </main>
+    </div>
+  </div>
+</section>
+<!-- content -->
+
+
+<!-- Footer -->
+
+<!-- Footer -->
+
+  {{!-- <div  class="img-zoom-result"></div> --}}
+<script>
+  function changeImage(url){
+    document.querySelector('.main-image').src=`/assets/products/${url}`
+        console.log(url)
+  }
+
+
+  function addtocart(proId){
+    console.log(proId)
+    fetch(`https://digityx.shop/cart/addtocart?proId=${proId}`).then(function(res){
+     return res.json()
+     
+  }).then((data)=>{
+    document.querySelector(".badge").innerHTML=data.count;
+      
+  }) 
+    
+
+  }
+</script>
+
+<script>
+  function imageZoom(imgID, resultID) {
+  var img, lens, result, cx, cy;
+  img = document.getElementById(imgID);
+  result = document.getElementById(resultID);
+  /* Create lens: */
+  lens = document.createElement("DIV");
+  lens.setAttribute("class", "img-zoom-lens");
+  /* Insert lens: */
+  img.parentElement.insertBefore(lens, img);
+  /* Calculate the ratio between result DIV and lens: */
+  cx = result.offsetWidth / lens.offsetWidth;
+  cy = result.offsetHeight / lens.offsetHeight;
+  /* Set background properties for the result DIV */
+  result.style.backgroundImage = "url('" + img.src + "')";
+  result.style.backgroundSize = (img.width * cx) + "px " + (img.height * cy) + "px";
+  /* Execute a function when someone moves the cursor over the image, or the lens: */
+  lens.addEventListener("mousemove", moveLens);
+  img.addEventListener("mousemove", moveLens);
+  /* And also for touch screens: */
+  lens.addEventListener("touchmove", moveLens);
+  img.addEventListener("touchmove", moveLens);
+  function moveLens(e) {
+    var pos, x, y;
+    /* Prevent any other actions that may occur when moving over the image */
+    e.preventDefault();
+    /* Get the cursor's x and y positions: */
+    pos = getCursorPos(e);
+    /* Calculate the position of the lens: */
+    x = pos.x - (lens.offsetWidth / 2);
+    y = pos.y - (lens.offsetHeight / 2);
+    /* Prevent the lens from being positioned outside the image: */
+    if (x > img.width - lens.offsetWidth) {x = img.width - lens.offsetWidth;}
+    if (x < 0) {x = 0;}
+    if (y > img.height - lens.offsetHeight) {y = img.height - lens.offsetHeight;}
+    if (y < 0) {y = 0;}
+    /* Set the position of the lens: */
+    lens.style.left = x + "px";
+    lens.style.top = y + "px";
+    /* Display what the lens "sees": */
+    result.style.backgroundPosition = "-" + (x * cx) + "px -" + (y * cy) + "px";
+  }
+  function getCursorPos(e) {
+    var a, x = 0, y = 0;
+    e = e || window.event;
+    /* Get the x and y positions of the image: */
+    a = img.getBoundingClientRect();
+    /* Calculate the cursor's x and y coordinates, relative to the image: */
+    x = e.pageX - a.left;
+    y = e.pageY - a.top;
+    /* Consider any page scrolling: */
+    x = x - window.pageXOffset;
+    y = y - window.pageYOffset;
+    return {x : x, y : y};
+  }
+}
+</script>
+<script>
+imageZoom("myimage", "myresult");
+</script>
+<script>
+  function over(){
+    console.log('over')
+  }
+  function out(){
+
+  }
+ 
+</script>
+
+

@@ -1,0 +1,723 @@
+<span style="font-family: verdana, geneva, sans-serif;"><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Mobile Store</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+</head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<body>
+
+    <style>
+        <span style="font-family: verdana, geneva, sans-serif;">/*  import google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+*{
+  margin: 0;
+  padding: 0;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+body{
+  background: rgb(219, 219, 219);
+}
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 20px;
+background-color: white;
+}
+.logo{
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+
+.header-icons{
+  display: flex;
+  align-items: center;
+}
+.header-icons i{
+  margin-right: 2rem;
+  cursor: pointer;
+}
+.header-icons .account{
+  width: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-icons .account img{
+  width: 35px;
+  height: 35px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.contain{
+  
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+ 
+  width: 100%;
+
+}
+
+/* Side menubar section */
+nav{
+  background: #fff;
+  width: 16%;
+}
+.side_navbar{
+ 
+  margin-left: 1.5%;
+  margin-top: .5%;
+  border-radius: 10px;
+  
+  width: 14%;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid rgb(187, 167, 167);
+}
+
+.side_navbar a{
+ 
+  width: 100%;
+  height: 50px;
+  font-weight: 500;
+  font-size: 15px;
+  color:#C62F3B;
+  
+}
+
+.side_navbar a:hover{
+  background: red;
+}
+
+/* Main Body Section */
+.main-body{
+  width: 100%;
+  padding: 1rem;
+}
+
+
+a{
+  text-decoration: none;
+}
+.form{
+  height: 70%;
+}
+
+
+/* Sidebar Section */
+
+
+
+.customerHeader{
+  display: flex;
+  justify-content: space-between;
+
+
+margin: 20px;
+}
+
+.customerDetails{
+  width: 80%;
+  height: 80%;
+  
+}
+.customerBody{
+  width: 100%;
+  display: flex;
+ 
+
+  
+}
+
+
+.side_navbar a{
+  display: flex;
+  
+  align-items:center;
+ 
+  
+  width: 100%;
+}
+.side_navbar a span{
+  color: black;
+ 
+
+ 
+}
+.side_navbar a svg{
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+
+.inp{
+  height: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  
+ border: none;
+  
+  width: 180%;
+ 
+}
+
+.btn{
+  margin-top: 50px;
+  margin-left: 100px;
+}
+
+.select-catergory{
+  width: 200px;
+}
+
+
+
+/* Dropdown Button */
+.dropbtn {
+  background-color:white;
+  color:black;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+#discount{
+  width: 100px;
+  height: 50px;
+  margin-top: 20px;
+  z-index: 1;
+}
+.inpu{
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
+  box-shadow: 1px 1px 3px black;
+}
+ .side_navbar a h6{
+     color: black;
+  }
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color:red;}
+@media screen and  (max-width:750px){
+  .side_navbar a h6{
+     display:none;
+  }
+
+  .side_navbar a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width:650px) {
+
+  .inp{
+    width: 100%;
+  }
+  
+}
+</span>
+    </style>
+
+
+
+
+
+
+
+  
+
+  <header class="header" style="background-color: white;">
+    <div class="logo">
+      <a style="color: white;" href="#"></a>
+      <div class="search_box">
+    <a class="navbar-brand" href="index.html" style="color: rgb(38, 35, 35);font-size: 30px;font-weight: 600;margin-bottom: 20px;margin-left: 30px;"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="30" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#f51505" d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"/></svg>Digite <span style="color: red;">X</span></a>
+      </div>
+    </div>
+
+    <div class="header-icons">
+      <i class="fas fa-bell"></i>
+      <div class="account">
+        <img src="https://media.licdn.com/dms/image/D4E03AQFBeocNl5nSqg/profile-displayphoto-shrink_100_100/0/1686207530496?e=1708560000&v=beta&t=iq5b9Z1-T-mDI4oCqngKSFOImPQv0cWMXK8Ta-iQ6_A" alt="">
+        <h4 style="color: white;"></h4>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="contain" >
+       
+      <div class="side_navbar" style="background-color:white;box-shadow: 1px 1px 10px grey;">
+      <span style="color: red; margin: 25px;"  >Main Menu</span>
+      
+      <a  href="/admin" class="active"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 60.7 28.7 32 64 32H448c35.3 0 64 28.7 64 64V416c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V96zm64 64V416H224V160H64zm384 0H288V416H448V160z"/></svg> <h6>Dashboard</h6></a>
+        <a href="/admin/view_products"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="20" viewBox="0 0 640 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M128 32C92.7 32 64 60.7 64 96V352h64V96H512V352h64V96c0-35.3-28.7-64-64-64H128zM19.2 384C8.6 384 0 392.6 0 403.2C0 445.6 34.4 480 76.8 480H563.2c42.4 0 76.8-34.4 76.8-76.8c0-10.6-8.6-19.2-19.2-19.2H19.2z"/></svg><h6>Products</h6></a>
+        <a href="/admin/view-category"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M264.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 149.8C37.4 145.8 32 137.3 32 128s5.4-17.9 13.9-21.8L264.5 5.2zM476.9 209.6l53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 277.8C37.4 273.8 32 265.3 32 256s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0l152-70.2zm-152 198.2l152-70.2 53.2 24.6c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L45.9 405.8C37.4 401.8 32 393.3 32 384s5.4-17.9 13.9-21.8l53.2-24.6 152 70.2c23.4 10.8 50.4 10.8 73.8 0z"/><h6>Category</h6></a>
+        <a href="/order/admin-view-orders"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M151.6 469.6C145.5 476.2 137 480 128 480s-17.5-3.8-23.6-10.4l-88-96c-11.9-13-11.1-33.3 2-45.2s33.3-11.1 45.2 2L96 365.7V64c0-17.7 14.3-32 32-32s32 14.3 32 32V365.7l32.4-35.4c11.9-13 32.2-13.9 45.2-2s13.9 32.2 2 45.2l-88 96zM320 480c-17.7 0-32-14.3-32-32s14.3-32 32-32h32c17.7 0 32 14.3 32 32s-14.3 32-32 32H320zm0-128c-17.7 0-32-14.3-32-32s14.3-32 32-32h96c17.7 0 32 14.3 32 32s-14.3 32-32 32H320zm0-128c-17.7 0-32-14.3-32-32s14.3-32 32-32H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H320zm0-128c-17.7 0-32-14.3-32-32s14.3-32 32-32H544c17.7 0 32 14.3 32 32s-14.3 32-32 32H320z"/></svg><h6>Orders</h6></a>
+        <a href="/admin/coupon"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M64 64C28.7 64 0 92.7 0 128V384c0 35.3 28.7 64 64 64H512c35.3 0 64-28.7 64-64V128c0-35.3-28.7-64-64-64H64zm64 320H64V320c35.3 0 64 28.7 64 64zM64 192V128h64c0 35.3-28.7 64-64 64zM448 384c0-35.3 28.7-64 64-64v64H448zm64-192c-35.3 0-64-28.7-64-64h64v64zM288 160a96 96 0 1 1 0 192 96 96 0 1 1 0-192z"/></svg><h6>Coupon </h6></a>
+        <a href="/admin/banner"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M48 24C48 10.7 37.3 0 24 0S0 10.7 0 24V64 350.5 400v88c0 13.3 10.7 24 24 24s24-10.7 24-24V388l80.3-20.1c41.1-10.3 84.6-5.5 122.5 13.4c44.2 22.1 95.5 24.8 141.7 7.4l34.7-13c12.5-4.7 20.8-16.6 20.8-30V66.1c0-23-24.2-38-44.8-27.7l-9.6 4.8c-46.3 23.2-100.8 23.2-147.1 0c-35.1-17.6-75.4-22-113.5-12.5L48 52V24zm0 77.5l96.6-24.2c27-6.7 55.5-3.6 80.4 8.8c54.9 27.4 118.7 29.7 175 6.8V334.7l-24.4 9.1c-33.7 12.6-71.2 10.7-103.4-5.4c-48.2-24.1-103.3-30.1-155.6-17.1L48 338.5v-237z"/></svg><h6>Banner </h6></a>
+        <a href="/admin/transaction"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M504 256c0 137-111 248-248 248S8 393 8 256 119 8 256 8s248 111 248 248zm-141.7-35.3c4.9-33-20.2-50.7-54.6-62.6l11.1-44.7-27.2-6.8-10.9 43.5c-7.2-1.8-14.5-3.5-21.8-5.1l10.9-43.8-27.2-6.8-11.2 44.7c-5.9-1.3-11.7-2.7-17.4-4.1l0-.1-37.5-9.4-7.2 29.1s20.2 4.6 19.8 4.9c11 2.8 13 10 12.7 15.8l-12.7 50.9c.8 .2 1.7 .5 2.8 .9-.9-.2-1.9-.5-2.9-.7l-17.8 71.3c-1.3 3.3-4.8 8.4-12.5 6.5 .3 .4-19.8-4.9-19.8-4.9l-13.5 31.1 35.4 8.8c6.6 1.7 13 3.4 19.4 5l-11.3 45.2 27.2 6.8 11.2-44.7a1038.2 1038.2 0 0 0 21.7 5.6l-11.1 44.5 27.2 6.8 11.3-45.1c46.4 8.8 81.3 5.2 96-36.7 11.8-33.8-.6-53.3-25-66 17.8-4.1 31.2-15.8 34.7-39.9zm-62.2 87.2c-8.4 33.8-65.3 15.5-83.8 10.9l14.9-59.9c18.4 4.6 77.6 13.7 68.8 49zm8.4-87.7c-7.7 30.7-55 15.1-70.4 11.3l13.5-54.3c15.4 3.8 64.8 11 56.8 43z"/></svg><h6>Transaction </h6></a>
+       
+       <a href="/admin/offers"><svg xmlns="http://www.w3.org/2000/svg" height="14" width="14" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48H48zM0 176V384c0 35.3 28.7 64 64 64H448c35.3 0 64-28.7 64-64V176L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg><h6>Offers </h6></a>
+       <hr>
+        <div class="links">
+          <h6  style="color: red;">User Management</h6>
+          <a href="/admin/manage_admin"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z"/></svg><h6>Manage Admins</h6></a>
+          <a href="/admin/customers"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="10" viewBox="0 0 320 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M112 48a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm40 304V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l58.3 97c9.1 15.1 4.2 34.8-10.9 43.9s-34.8 4.2-43.9-10.9L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152z"/></svg><h6>Customers </h6></a>
+   <hr>
+        </div>
+        <div class="links">
+          <h6  style="color: red;">Others</h6>
+          <a href="/admin/settings"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg><h6>Setting</h6></a>
+          <a href="/admin/help"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M0 96C0 78.3 14.3 64 32 64H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32H416c17.7 0 32 14.3 32 32s-14.3 32-32 32H32c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H416c17.7 0 32 14.3 32 32z"/></svg><h6>Help</h6></a>
+          <a href="/admin/logout"><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"/></svg><h6>Logout</h6></a>
+        </div>
+      </div>
+
+      
+   
+
+    
+
+<div class="customerDetails row">
+
+<div class="row" style="height: 50px;" >
+
+               <div class="col-lg-6 col-xl-6 col-sm-12" style="height: 50px;"  >
+   
+
+               <h4> ADD PRODUCT</h4>
+                </div>
+     
+
+              <div class="col-lg-6 col-xl-6 col-sm-6"  style="height: 60px;display: flex;justify-content: flex-end;padding: 10px;">
+   
+               <a href="/admin/view_products" class="btn" style="background-color: red;color: white;margin: 0;"> All Products
+                      </a>
+               </div>
+     
+  
+
+
+
+
+</div>
+
+
+
+
+<div style="margin-top: 40px;">
+
+  {{!-- form --}}
+
+      
+    <form id="form" action="/admin/add-product"  method="post" enctype="multipart/form-data" style="background-color: ;">
+      <div class="row" style="border: 1px solid rgb(165, 151, 151);border-radius: 5px;background-color: ;box-shadow: margin-top: 50px;height: 100%;">
+
+                  <div class=" col-md-6 col-lg-6 col-sm-12 col-xl-6 ">
+                     <label for="" >Product Name</label><br>
+                     <span style="font-weight: 600;color: red;" class="" id="nameErr"></span> <br>
+                     
+                     <input class="inpu" id="name" type="text" " name="name" > 
+                  </div>
+
+                  <div class=" col-md-6 col-lg-6 col-sm-12 col-xl-6 ">
+                    <label for="">Price</label><br>
+                    <span style="font-weight: 600;color: red;" class="" id="priceErr"></span><br>
+                    <input id="price" type="number" " class="inpu"  name="price">
+                  </div>
+                  
+                   <div class=" col-md-6 col-lg-6 col-sm-12 col-xl-6 ">
+                     <label for="" >Description</label>
+                     <br>
+                     <span id="descriptionErr" class="" style="font-weight: 600;color: red;"></span>
+                     <input class="inpu" type="text" id="description" name="description">
+                   </div>
+                   
+                  
+                       <div class="dropdown col-md-6 col-lg-6 col-sm-12 col-xl-6 " >
+                    <button class="dropbtn inpu" id="select-category" style="border: 1px solid#DBDBDB;width: 100%;margin-top: 10px;height: 54px;" >Select Category</button>
+
+                      <div class="dropdown-content">
+                       {{#each category}}
+                        <span style="margin-left: 20px;cursor: pointer;width: 100%;" onclick="category('{{this.category}}')">{{this.category}}</span><br><hr>
+                       {{/each}}
+                     </div>
+        
+
+                     
+                      </div>
+
+
+                    
+                       <div class="col-lg-4 col-sm-12 col-xl-4">
+
+                      <label for=""">Quantity</label>
+                
+                       <input class="inpu" type="number"  name=""  id="quantity" onchange="changequantity()" style="">
+                       <br><span class="" style="font-weight: 600;color: red;" id="quantityErr"></span>
+                  
+                       </div>
+
+                       {{!-- //status --}}
+                             <div class="col-lg-4 col-sm-12 col-xl-4">
+                     
+                      <label>Status</label><br>
+                     <select name="" class="inpu" id="status" onchange="changestatus()"  style="width: 100%;height: 50px;" >
+                      <option value="" >select</option>
+                      <option value="Published" selected>Published</option>
+                      <option value="Low of stock">Low of stock</option>
+                      <option value="Out of stock">Out of stock</option>
+                      <option value="Draft">Draft</option>
+                     </select>
+              
+
+                       </div>
+
+                       <div class="col-lg-4 col-sm-12 col-xl-4">
+
+                     <label for="" ">Discount</label><br>
+                     <span id="discountErr" class="" style="font-weight: 600;color: red;"></span>
+                      <input class="inpu" value="0" id="discount" type="number"  name="discount" style="width: 100%;margin-top: 0px;">
+                       </div>
+
+                       {{!-- offers --}}
+                                <div class="col-lg-6 col-sm-12 col-xl-6">
+                     
+                      <label>Select Offer</label><br>
+                     <select name="offerType" style="width: 100%;height: 50px;" >
+                      <option value="">select</option>
+                      {{#each offer}}
+                      <option value="{{this.offertype}}">{{this.offertype}}</option>
+                    {{/each}}
+                     </select>
+              
+
+                       </div>
+
+
+                       
+                                <div class="col-lg-6 col-sm-12 col-xl-6">
+                     
+                      <label>Offer Discount</label><br>
+                     <select name="offerDiscount" style="width: 100%;height: 50px;border-radius: 5px;" class="inpu" >
+                      <option value="0">Select</option>
+                      <option value="10">10%</option>
+                      <option value="20">20%</option>
+                      <option value="30">30%</option>
+                      <option value="40">40%</option>
+                      <option value="50">50%</option>
+                      <option value="60">60%</option>
+                      <option value="70">70%</option>
+                      <option value="80">80%</option>
+                   
+                     </select>
+              
+
+                       </div>
+                     {{!-- image --}}
+                     
+        
+        
+        <div style="margin-bottom: 0px;display: flex;flex-direction:column;justify-content: center;align-items: center;" class="col-xl-12">
+<img style="width: 100px;height: 100px;" id="img" src="data:image/png;base64,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" alt="" >
+         
+           <input multiple style="width: 250px;" type="file" id="image" name="image" onchange="viewImage(event)" >
+
+           
+           
+        
+        
+           
+           <input  type="text" style="display: none;" value="" name="status" id="stat" >
+           <input type="number" style="display: none;" value="" name="quantity" id="quant">
+           <input type="text" style="display: none;" value="" name="category" id="category">
+    <button style="width: 200px;background-color: red;color: white;margin-bottom: 20px;"  type="submit" class="btn">Submit</button>
+        </div>
+
+
+
+
+                  </div>
+                   
+         </div>
+                  
+         
+
+                  
+
+
+    
+                 
+                
+
+
+
+
+                    
+
+
+
+
+    
+
+      
+                   
+                     </div>
+       </div>
+    
+
+      </div>
+     
+
+
+    </form>
+
+
+   {{!-- form --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+    
+  </div>
+
+  <script>
+   function changequantity(){
+    let quantity= document.getElementById("quantity").value;
+   document.getElementById("quant").value=quantity
+   }
+   function changestatus(){
+    let status= document.getElementById("status").value;
+   document.getElementById("stat").value=status
+   }
+
+  function category(e){
+    document.getElementById('category').value=e
+    document.getElementById("select-category").innerHTML=e
+  }
+
+    function viewImage(event){
+      document.getElementById("img").src=URL.createObjectURL(event.target.files[0])
+    }
+
+
+
+
+    
+    
+
+
+
+
+
+
+
+{{!-- event listner --}}
+
+  form.addEventListener('submit',function(e){
+
+
+
+const name = document.getElementById('name').value
+const dis= document.getElementById('discount').value
+let discount=parseInt(dis)
+const pri = document.getElementById('price').value
+let price=pri;
+const  quantity = document.getElementById('quantity').value
+const  description = document.getElementById('description').value
+
+const nameErr = document.getElementById('nameErr');
+const priceErr = document.getElementById('priceErr');
+const descriptionErr = document.getElementById('descriptionErr');
+const quantityErr = document.getElementById('quantityErr');
+const discountErr = document.getElementById('discountErr');
+let category=document.getElementById('select-category')
+console.log(description)
+
+
+
+function nameError(msg){
+  e.preventDefault()
+  nameErr.innerHTML=msg
+}
+function descriptionError(msg){
+  e.preventDefault()
+  descriptionErr.innerHTML=msg
+}
+
+function priceError(msg){
+  e.preventDefault()
+  priceErr.innerHTML=msg
+}
+
+function discountError(msg){
+  e.preventDefault()
+  discountErr.innerHTML=msg
+}
+
+function quantityError(msg){
+  e.preventDefault()
+  quantityErr.innerHTML=msg
+}
+
+
+{{!-- name --}}
+
+if(name==''){
+  nameError('Required')
+}
+else if(name.length<=4){
+nameError('minimum 4 charecter required')
+}
+else if(name.length>20){
+nameError('Maximum length exceeded')
+}
+else{
+  nameErr.innerHTML=''
+}
+
+{{!-- description --}}
+
+if(description==''){
+  descriptionError('Required')
+}
+
+else{
+  descriptionErr.innerHTML=''
+}
+
+{{!-- price --}}
+
+if(price==''){
+  priceError('Required')
+}
+else if(parseInt(price)<=0){
+   priceError('Price Must be greaterthan 0')
+}
+else if(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\\-/]/g.test(price)){
+  priceError('Special charecter not allowed')
+}
+else if(parseInt(price)<parseInt(discount)){
+   priceError('Mustbe Greaterthan Discount')
+  
+}
+else if(price<500){
+   priceError('must be graterthan 500')
+  
+}
+
+else{
+  priceErr.innerHTML=''
+}
+
+
+{{!-- discount --}}
+console.log(typeof(discount),typeof(price))
+if(discount>price){
+  discountError("discount Must be Lowerthan Price")
+}
+else if(discount<0)
+discountError("Negetive value not allowed")
+else{
+  discountErr.innerHTML=''
+}
+
+
+if(quantity==''){
+  quantityError('Required')
+}
+else if(parseInt(quantity)>100){
+   quantityError('Quantity Limit Exceeded')
+}
+else{
+quantityErr.innerHTML=''
+}
+
+if(category.innerHTML=='Select Category'){
+  e.preventDefault()
+  category.style.color='red'
+}
+else{
+  category.style.color='white'
+}
+
+
+  })
+
+
+  </script>
+  
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
+</span>
+
+
+<script>
+
+ 
+  
+</script>
+

@@ -1,0 +1,84 @@
+<style>
+  .dropdown-menu h3:hover{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+  }
+  span{
+    font-weight: 600;
+  }
+  .checked{
+    color: green;
+  }
+       
+</style>
+<div style="width: 100%;height: 100%;display: flex;justify-content: center;background-color: #E2E2E2;flex-direction: column;justify-content: center;align-items: center;">
+    <div style="width: 60%;background-color: red;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <h2 style="color: white;">CANCEL REQUEST</h2>
+ </div> 
+ {{#each order.products}}      
+ <div style="width: 60%;background-color: white;margin-top: 10px;display: flex;justify-content: space-between;box-shadow: 1px 1px 10px grey;">
+   <div class="" style="display: flex;flex-direction: column;padding: 35px;">
+    <h4>{{this.product.name}}</h4>
+                                     <div>
+                       
+                     <span class="fa fa-star checked"></span>
+
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<span class="fa fa-star"></span>
+                     </div>
+    <p>Price : &#8377;{{this.product.price}}</p>
+   </div>
+   <div style="padding: 35px;">
+    <img src="/assets/products/{{this.product.image}}" alt="" style="width: 100px;height: 100px;">
+   </div>
+ </div>       
+{{/each}}
+    
+    <div style="width: 60%;background-color: red;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <h3 style="color: white;">Where Do You Want To Save Money ?</h3>
+ </div>  
+ 
+    <div style="width: 60%;background-color: white;margin-top: 10px;height: 50px;display: flex;justify-content: center;align-items: center;">
+     <span style="color: black;">Total Refund Amount&nbsp;&nbsp;:&nbsp;{{order.subtotal}}</span>
+ </div>  
+ 
+  
+  <div style="width: 60%;background-color: white;margin-top: 10px;display: flex;justify-content: space-between;margin-bottom: 10px;">
+   <div class="" style="display: flex;flex-direction: column;padding: 35px;">
+    
+      <form action="/order/user-order-cancel-confirm?id={{order.subtotal}}&&orderId={{order._id}}" method="post">
+           <div>
+
+            <input type="radio" name="money" id="" value="originalPayment" style="width: 20px;">
+          <label for="">Original Payment Mode</label>
+          <p></p>
+          
+           </div>
+           <div>
+
+            <input type="radio" name="money" id="" style="width: 20px;" value="giftCardWallet">
+          <label for="">Gift Cart Wallet <span style="background-color: green; color: white;">Fastest</span></label>  
+           </div>
+
+           <button type="submit" href="" class="btn" style="margin-top: 20px;color: white;background-color: red;">SEND</button>
+        
+      </form>
+   </div>
+   
+ </div>       
+     
+
+    
+    
+</div>
+<script>
+    function data(arg){
+ var res =   document.getElementById('dropdownMenuButton').innerHTML=arg
+     
+
+     console.log(arg)
+    }
+</script>

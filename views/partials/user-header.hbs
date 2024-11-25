@@ -1,0 +1,265 @@
+{{!-- 
+<style>
+     .others{
+       
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+     }
+     .cart{
+          display: flex;
+          justify-content: flex-end;
+     }
+     .others svg{
+          margin-right: 20px;
+     }
+</style>
+
+
+
+<header>
+         <!-- header inner -->
+         <div class="header">
+            <div class="head_top">
+               <div class="container">
+                  <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+                       <div class="top-box">
+                        <ul class="sociel_link">
+                         <li> <a href="#"><i class="fa fa-facebook-f"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-instagram"></i></a></li>
+                         <li> <a href="#"><i class="fa fa-linkedin"></i></a></li>
+                     </ul>
+                    </div>
+                  </div>
+                  <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 cart">
+                    <div class="others">
+
+                       <a href="/cart/view-cart">
+                      <span class="badge badge-success" id="count"></span>
+
+                       <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                       </a>
+                       <a href="/user_profile">
+                      
+
+                       <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg>
+                       </a>
+                       <a href="/products/wishlist">
+                       <span class="badge badge-danger" id="wishlist"></span>
+
+                       <svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2023 Fonticons, Inc.--><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg>
+                        <img src="" alt="" id="icon" style="width: 30px;height: 30px; border-radius: 50%;margin-top:auto;">
+                       </a>
+                    </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo"> <a href="/user_home"><img style="width: 100px;height: 60px;" src="/exports/images/t.jpg" alt="logo"/></a> </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-7 col-lg-7 col-md-9 col-sm-9">
+                  <div class="menu-area">
+                     <div class="limit-box">
+                        <nav class="main-menu">
+                           <ul class="menu-area-main">
+                              <li class="active"> <a href="/user_home">Home</a> </li>
+                              <li> <a href="user_about">About</a> </li>
+                              <li> <a href="/user_products">Product</a> </li>
+                              <li> <a href="user_blog"> Blog</a> </li>
+                              <li> <a href="user_contact">Contact</a> </li>
+                              <li class="mean-last"> <a href="/user_signup">signup</a> </li>
+                               
+                           </ul>
+                        </nav>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-2 col-lg-2 col-md-2 col-sm-2">
+                 {{#if user}}
+                  <li><a class="buy" href="/user_logout">Logout</a></li>
+                 {{else}}
+                  <li><a class="buy" href="/user_login">Login</a></li>
+                 {{/if}}
+
+                  
+               </div>
+            </div>
+         </div>
+         <!-- end header inner --> 
+      </header>
+      <hr>
+
+
+
+      <script>
+         fetch('http://localhost:3000/cart/cartcount').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+            document.getElementById("count").innerHTML = data.count
+
+            
+           
+ 
+            
+         })
+
+
+         fetch('http://localhost:3000/profile/profile-icon').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+          
+            document.getElementById("icon").src=`/assets/products/${data.image}`
+         })
+
+
+           //wishlist
+
+               fetch('http://localhost:3000/products/wishlistcount').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+            console.log(data)
+            document.getElementById("wishlist").innerHTML=data.wishlist
+    
+            
+           
+ 
+            
+         })
+      </script> --}}
+
+       <header class="header_section" style="position: sticky;top: 0;background-color: white;z-index: 100;">
+            <div class="container">
+               <nav class="navbar navbar-expand-lg custom_nav-container ">
+                 
+                  <button onclick="hello()" class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class=""> </span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <a class="navbar-brand" href="#" style="color:black;font-size: 30px;font-weight: 600;">Digite <span style="color: red;">X</span></a>
+                 
+
+                       <div class="searchicon" style="display: flex;margin-bottom: 35px;margin-top: 35px;marginleft:20px;">
+                     <input id="search" type="search"  placeholder="Search" aria-label="Search" aria-describedby="search-addon" style="border: 1px solid red;border-radius: 5px;display: ;"  />
+                          <span   class="input-group-text border-0" id="search-addon" style="background-color:red;color: white;">
+                                <a href="" class="searchicon">
+                                   <svg class="searchicon" xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#fafafa" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                                 </a>
+                           </span>
+                           
+               </div>
+                     <ul class="navbar-nav">
+                      
+                        <li class="nav-item active">
+                           <a class="nav-link" href="/user_home">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                       <li class="nav-item dropdown">
+                           <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
+                           <ul class="dropdown-menu">
+                              <li><a href="/user_about">About</a></li>
+                              <li><a href="/user_contact">Contact</a></li>
+                           </ul>
+                        </li>
+                        <li class="nav-item">
+                           <a class="nav-link" href="/user_products" >Products</a>
+                        </li>
+                     
+                        <li class="nav-item">
+                           <a class="nav-link" href="/cart/view-cart">
+                            <span class="badge badge-success" id="count">0</span> <svg xmlns="http://www.w3.org/2000/svg" height="16" width="18" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M0 24C0 10.7 10.7 0 24 0H69.5c22 0 41.5 12.8 50.6 32h411c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3H170.7l5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24 10.7 24 24s-10.7 24-24 24H199.7c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5H24C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg></a>
+                        </li>
+                        <li class="nav-item">
+                           <div>
+
+                           
+                           <a href="/products/wishlist" class="nav-link">
+                            <span class="badge badge-danger" id="wishlist">0</span><svg xmlns="http://www.w3.org/2000/svg" height="16" width="16" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M47.6 300.4L228.3 469.1c7.5 7 17.4 10.9 27.7 10.9s20.2-3.9 27.7-10.9L464.4 300.4c30.4-28.3 47.6-68 47.6-109.5v-5.8c0-69.9-50.5-129.5-119.4-141C347 36.5 300.6 51.4 268 84L256 96 244 84c-32.6-32.6-79-47.5-124.6-39.9C50.5 55.6 0 115.2 0 185.1v5.8c0 41.5 17.2 81.2 47.6 109.5z"/></svg></a>
+                           </div>
+                        </li>
+                    
+                        <li class="nav-item">
+                           <div>
+                           <a href="/user_profile" class="nav-link">
+                           <img src="" style="width: 20px; height: 20px;border-radius: 50%;" id="icon" alt="">
+                        <span style="display: none;" id="proIcon">
+                           
+                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--!Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z"/></svg></a>
+                        </span>
+
+                       
+                           </div>
+                        </li>
+                          <li></li>
+                           
+                    
+
+                      
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </header>
+        
+         <script>
+
+            
+         fetch('https://digityx.shop/cart/cartcount').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+           if(data.count==undefined){
+                document.getElementById("count").innerHTML = 0;  
+           }
+           else{
+
+            document.getElementById("count").innerHTML = data.count;  
+           }
+
+               })
+            
+
+
+         fetch('https://digityx.shop/profile/profile-icon').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+          
+            if(data.success == true){
+            console.log(data)
+            document.getElementById("icon").src=`/assets/products/${data.image}`
+            document.getElementById("proIcon").style.display ='none'
+           }
+           else{
+            document.getElementById("icon").style.display='none'
+               document.getElementById("proIcon").style.display ='inline'
+            console.log(data)
+           }
+         })
+       //wishlist
+
+               fetch('https://digityx.shop/products/wishlistcount').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+            console.log(data)
+            document.getElementById("wishlist").innerHTML=data.wishlist
+    
+            
+           
+ 
+            
+         })
+      </script> 
+
+            <script>
+         function hello(){
+         document.getElementById('navbarSupportedContent').classList.toggle("collapse")
+         }
+      </script>

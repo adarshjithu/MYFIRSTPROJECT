@@ -1,0 +1,4 @@
+"_id","user","payment","total","subtotal","discount","couponId","couponCode","coupon","referalCode","referalDiscount","deliveryCharge","status","productsCount","orderedAt","__v","orderId"
+"65eeb79f982d8ab67bd9daad","65e81af8f532f92506915471","wallet",80999,100000,10000,"","DIGITYX499207","9016","",0,15,"Placed",1,"Mon Mar 11 2024",0,"65eeb79f982d8ab67bd9daad"
+"65eeb832982d8ab67bd9dba7","65e81af8f532f92506915471","COD",51921,51960,40,"","","","",0,1,"Placed",1,"Mon Mar 11 2024",0,"65eeb832982d8ab67bd9dba7"
+"65eeb833982d8ab67bd9dbaf","65e81af8f532f92506915471","COD",51921,51960,40,"","","","",0,1,"Cancelled",1,"Mon Mar 11 2024",0,"65eeb833982d8ab67bd9dbaf"

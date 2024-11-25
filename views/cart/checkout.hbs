@@ -1,0 +1,836 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Checkout example for Bootstrap</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/checkout/">
+
+    <!-- Bootstrap core CSS -->
+    <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="form-validation.css" rel="stylesheet">
+  </head>
+
+  <body class="bg-light">
+    <style>
+        .disablePayment{
+            display: none;
+        }
+
+        .ul{
+          display: none;
+        }
+        .shows{
+          display: none;
+        }
+      
+        input[type='radio']{
+          accent-color: red;
+        }
+        .alert-box{
+          background-color: red;
+        }
+    </style>
+
+    <div style="padding: 2%;background-color: #DEE2E5;" >
+       
+        
+      <div class="py-5 text-center">
+        
+
+      <div class="row" style="display: flex;justify-content: space-evenly;">
+         {{!-- cartDetails --}}
+        <div class="col-md-4 order-md-2 mb-4" style=";border-radius: 5px;">
+          <h4 class="d-flex justify-content-between align-items-center mb-3" style="box-shadow: 1px 1px 10px grey;">
+         
+    
+          </h4>
+          <ul class="list-group mb-3">
+            {{#each cart}}
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <img style="width: 40px; height: 40px;" src="/assets/products/{{this.product.image}}" alt="">
+              <div>
+                <h6 class="my-0">{{this.product.name}}</h6>
+                <small class="text-muted">{{this.count}} X {{this.product.price}}</small>
+              </div>
+              <h6 class="text-muted" style="color: black;font-weight: 600;">{{this.total}}</h6>
+            </li>
+            {{/each}}
+
+          
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total Discount</span>
+              <span id="discount">123</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Coupons</span>
+              <span id="offer">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Referal Bonus</span>
+              <span id="ref">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Delivery Charge</span>
+              <span id="deliveryCharge">0</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span >Sub Total</span>
+              <span id="subtotal">123</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total Price</span>
+              <span id="total"></span>
+            </li>
+          </ul>
+
+
+
+  
+
+          
+          <div class="coupons" style="box-shadow: 1px 1px 5px black;">
+           
+          
+          <div style="width: 100%;margin-top: 20px;">
+            <span class="userId" style="display: none;">{{userId}}</span>
+            
+            <a onclick="toggle()" class="btn" style="color: white;width: 100%;color: white;background-color: white;color: red;border: 1px solid red;">Select Avaiable Coupon</a>
+            <ul id="ul" class="ul">
+                   
+              {{#each coupon}}
+              <li style="border: 1px solid #f7464f;display: flex;justify-content: space-around;margin-top: 10px;" id="{{this._id}}">
+                
+                <span id="coup">{{this.couponcode}}</span>
+                <span>{{this.discount}}% discount</span>
+                
+             
+
+                <button id="{{this._id}}" class="btn" onclick="applyCoupon('{{this._id}}','{{this.couponcode}}','{{this.discount}}')" style="background-color: white;color: red;border: 1px solid red;margin: 10px 0px 10px 0px;">Apply</button>
+                
+              </li>
+              {{/each}}
+            </ul>
+          </div>
+          </div>
+             <div style="width: 100%;display: flex;justify-content: space-between;margin-top: 20px;">
+              <input  placeholder="Enter Referal Code" type="text" name="" id="referalcode" style="width: 300px;border-radius: 5px;border: none;height: 50px;box-shadow: 1px 1px 5px black;">
+              <button onclick="addReferal()" class="btn" style="background-color: red;color: white;">APPLY </button>
+
+             </div>
+
+          
+        </div>
+        {{!-- ////////////////////////////////////////////////////////////////////////////////////////////// --}}
+        
+        
+          {{!-- cartdetails --}}
+
+        <div class="col-md-6 order-md-1 ">
+         {{!-- addrsss --}}
+               {{#if noAddress}}
+               <input style="display: none;" type="text" id="addressError" value="{{noAddress}}">
+               <span class="text-danger" style="font-weight: 600;margin-bottom: 20px;"> Address Not Found Add New Address or Select Another Address Type</span> {{/if}}
+         <div style="box-shadow: 1px 1px 10px grey;">
+
+         {{#each address}}
+         <div style="display: flex;">
+         <div class="col-xl-12 col-md-12" id="address" style="width: 100%;height: 30%;border: 1px solid red;background-color: white;border-radius: 5px;margin-bottom: 10px;display: flex;flex-direction: row;padding: 10px;">
+           <div class="l" style="display: flex;flex-direction: column;justify-content: ;">
+            <h6>Delivery To :</h6>
+          <input onchange="changeAddress('{{this._id}}')" {{#if home}}checked{{/if}} type="radio" name="address" id="" style="width: 20px;height: 20px;margin-top: 20px;">
+            </div>
+           <div class="r" style="margin-left: 20px;">
+            <div style="display: flex;align-items: flex-start;">
+              
+            <h6>{{this.firstname}}</h6>
+            </div>
+            <h6>{{this.address}}</h6>
+           <div style="display: flex;align-items: flex-start;">
+              
+
+            <h6>{{this.country}},&nbsp;{{this.state}},&nbsp;{{this.city}}&nbsp;</h6>
+            </div>
+           <div style="display: flex;align-items: flex-start;">
+              
+
+            <h6>{{this.zipcode}}&nbsp;,{{this.phonenumber}}</h6>
+            </div>
+            </div>
+         </div>
+         </div>
+         {{/each}}
+
+         <div class="col-xl-12 col-md-12" id="address" style="width: 100%;max-height: 10%;border: 1px solid red;background-color: white;border-radius: 5px;margin-bottom: 10px;display: flex;align-items: flex-start;padding: 10px;min-height: 10%;">
+          <a onclick="toggles()" style="color: red;font-weight: 700;"> + Add New Address</a>
+         </div>
+         {{!-- select category --}}
+
+         
+          </div>
+
+
+
+
+
+
+          {{!-- checkout form --}}
+       <form action="/profile/updateAddress" method="post" id="AddressValidateForm">
+          <div style="" class="shows" id="addr">
+            <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">First name</label> 
+                  {{!-- firstname --}}
+                <input style="border: 1px solid #f7464f;border-radius: 10px;" type="text"  id="firstname" placeholder="" value="{{address.firstname}}" name="firstname">
+                <span class="firstnameErr" style="color: red;font-weight: 600;"></span>
+                 {{!-- firstname --}}
+               
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Last name</label>
+                {{!-- lastname --}}
+                <input style="border: 1px solid #f7464f;border-radius: 10px;" type="text"  id="lastname" placeholder="" value="{{address.lastname}}" name="lastname">
+                <span id="lastnameErr" style="color: red;font-weight: 600;"></span>
+                 {{!-- lastname --}}
+            
+              </div>
+            </div>
+           
+
+
+
+       
+            {{!-- address --}}
+            <div class="mb-3">
+              <label for="address">Address</label>
+              <input style="border: 1px solid #f7464f;border-radius: 10px;" class="address" value="{{address.address}}" type="text"  placeholder=""  name="address">
+              <span id="addressErr" style="font-weight: 600;color: red;"></span>
+             
+          
+            </div>
+            {{!-- address --}}
+
+ <div class="row">
+              <div class="col-md-6 mb-3">
+                <label for="firstName">Email </label> 
+                  {{!-- firstname --}}
+                <input style="border: 1px solid #f7464f;border-radius: 10px;" type="text"  id="email" placeholder="" value="{{address.email}}"  name="email">
+                <span id="emailErr" style="font-weight: 600;color: red;"></span>
+                 {{!-- firstname --}}
+               
+              </div>
+
+              <div class="col-md-6 mb-3">
+                <label for="lastName">Phone Number</label>
+                {{!-- lastname --}}
+                <input style="border: 1px solid #f7464f;border-radius: 10px;" type="number"  id="phonenumber" placeholder="" value="{{address.phonenumber}}" name="number">
+                <span id="phonenumberErr" style="color: red;font-weight: 600;"></span>
+                 {{!-- lastname --}}
+               
+              </div>
+            </div>
+
+
+       
+      
+
+            <div class="row">
+              {{!-- country --}}
+              <div class="col-md-5 mb-3">
+                <label for="country">Country</label>
+                <select    class="custom-select d-block w-100" id="country" required name="country">
+                  <option value="" >Choose...</option>
+                  <option value="us" selected>United States</option>
+                  <option selected value="india">India</option>
+                </select>
+               
+              </div>
+           {{!-- country --}}
+           
+           {{!-- state --}}
+              <div class="col-md-4 mb-3">
+                <label for="state">State</label>
+                <select name="state" class="custom-select d-block w-100" id="state" required>
+                  <option value="">Choose...</option>
+                  <option selected value="kerala">Kerala</option>
+                  <option value="tamilnadu">Tamilnadu</option>
+                </select>
+              
+              </div>
+
+               {{!-- state --}}
+
+               {{!-- zip --}}
+              <div class="col-md-3 mb-3">
+                <label for="zip">Zip</label>
+                <input style="border: 1px solid #f7464f;border-radius: 10px;" type="number"  id="zipcode" value="{{address.zipcode}}" placeholder="" name="zipcode">
+                <span id="zipcodeErr" style="color: red;font-weight: 600;"></span>
+               
+              </div>
+
+
+           
+             
+              
+               {{!-- zip --}}
+
+
+            </div>
+
+            {{!-- address slection --}}
+    
+              <div style="display: flex;justify-content: center;width: 100%;" id="" >
+                <button class="btn" style="background-color: red;color: white;width: 100%;margin-bottom: 10x;" type="submit">Save Address</button>
+                   
+               
+              
+           
+            </div>
+              </div>
+
+        
+            </form>
+
+
+            {{!-- //////////////////////////////////// --}}
+               <form  method="post" action="/cart/checkout" style="background-color: #DEE2E5;" onsubmit="checkQuantity(event)" id="placeOrderForm" >
+            <div style="background-color: white; border: 1px solid red;border-radius: 5px;">
+
+            <h4 class="mb-3">Payment</h4>
+
+             <div  class=" my-3" style="display: flex;">
+
+                   
+                  <div id="cashOnDelivery">
+
+                   <input type="radio" name="payment" id="cod" onclick="changePayment()" value="COD"  style="height:25px;width: 25px;margin-left: 20px;background-color: red;" checked  >
+                   <label for="" style="margin-left: 10px;">Cash On Delivery</label>
+                  </div>
+                   
+               
+            
+                   <input value="online" onclick="changePayment()" type="radio" style="margin-left: 20px;height:25px;width: 25px;" name="payment" id="onlinepayment" >
+                   <label for="" style="margin-left: 10px;">Online Payments</label>
+               
+                    <div id="giftcartwallet">
+
+                   <input value="wallet" onclick="changePayment()" type="radio" style="margin-left: 20px;height:25px;width: 25px;" name="payment" id="creditcard">
+                   <label for="" style="margin-left: 10px;">Giftcard Wallet</label>
+                    </div>
+                
+               
+            
+              
+         
+           </div>
+            </div>
+
+           
+            <hr class="mb-4">
+            <input type="text" name="chooseAddress" value="" id="chooseAddress" style="display:none ;">
+            <input type="number" name="deliverycharge" id="del" style="display: none;">
+            <input type="text" name="couponcode" id="couponcode" style="display: none;" >
+            <input type="text" value="0" id="referalbonus" name="referaldiscount" style="display: none;">
+            <input type="text" name="referal" id="referal" style="display: none;">
+            <input type="number"  name="total" id="t" value="" style="display: none;">
+            <input type="number" id="coupon" value="" style="display: none;" name="coupon">
+            <input type="number" name="subtotal" id="s" value="" style="display: none;">
+            <input type="number" name="discount" id="d" value="" style="display: none;">
+            <button  id="checkoutButton" class="btn btn-lg btn-block" type="submit" style="background-color: red;color: white;font-weight: 600;"> PLACE ORDER </button>
+          </form>
+
+          {{!-- checkoutform --}}
+        </div>
+         
+      </div>
+
+   
+    </div>
+    <script>
+     
+    </script>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
+    <script src="../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../dist/js/bootstrap.min.js"></script>
+    <script src="../../assets/js/vendor/holder.min.js"></script>
+    <script>
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function() {
+        'use strict';
+
+        window.addEventListener('load', function() {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+              if (form.checkValidity() === false) {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+  </body>
+</html>
+
+
+<script>
+     fetch('https://digityx.shop/cart/cartcount').then((res)=>{
+            return res.json()
+         }).then((data)=>{
+            {{!-- document.getElementById("items").innerHTML = data.count ; --}}
+            document.getElementById("subtotal").innerHTML = data.subTotal
+            document.getElementById("s").value = data.subTotal
+            document.getElementById("discount").innerHTML = data.discount
+            document.getElementById("d").value = data.discount
+                          let delivery =Math.floor(Math.random()*100);
+  document.getElementById("deliveryCharge").innerHTML =delivery
+            document.getElementById("total").innerHTML = data.totalPrice+delivery;
+
+            document.getElementById('t').value = data.totalPrice+delivery
+            document.getElementById("del").value = delivery
+
+           let walletTotal={{{walletTotal}}}
+            if(walletTotal<(data.totalPrice+delivery)){
+            document.getElementById('giftcartwallet').style.display='none'
+           }
+            if(data.totalPrice<2000){
+
+              document.getElementById("cashOnDelivery").style.display='none'
+            }
+            
+     
+         
+
+            
+         })
+ 
+
+ function changeCountry(){
+
+         console.log(document.getElementById("country").value)
+ }
+
+ function changeState(){
+     console.log(document.getElementById("state").value)
+ }
+
+
+function changePayment(){
+var cod = document.getElementById("cod").checked
+var onlinepayment = document.getElementById("onlinepayment").checked
+var creditcard = document.getElementById("creditcard").checked
+
+
+if(creditcard){
+    document.getElementById("paymentmain").classList.remove('disablePayment')
+}
+
+
+if(cod){
+    document.getElementById("paymentmain").classList.add('disablePayment')
+}
+if(onlinepayment){
+    document.getElementById("paymentmain").classList.add('disablePayment')
+}
+
+}
+
+
+function change(e){
+ const value = document.getElementById("add").value
+  fetch(`https://digityx.shop/cart/checkout-change-address?type=${value}`).then((res)=>{
+    return res.json()
+  }).then((data)=>{
+    location.reload()
+  })
+}
+
+
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+  function toggle(){
+    document.getElementById('ul').classList.toggle("ul")
+  }
+</script>
+
+<script>
+  function applyCoupon(couponId,couponCode,discount){
+
+    var userId = document.querySelector(".userId").innerHTML;
+    const total = document.getElementById("total").innerHTML;
+    const delivery = document.getElementById("deliveryCharge").innerHTML;
+  
+
+    var dis = (total*discount)/100;
+    var discountPrice = Math.floor(dis)+parseInt(delivery)
+    console.log(couponId,userId,couponCode,discount);
+document.getElementById('t').value=parseInt(total)-parseInt( discountPrice)
+document.getElementById("offer").innerHTML=parseInt(document.getElementById("offer").innerHTML)+parseInt(discountPrice)
+document.getElementById("coupon").value=discountPrice
+ Swal.fire(`YOU WON ${discountPrice} DISCOUNT`);
+    
+          document.getElementById("total").innerHTML=total-discountPrice
+          document.getElementById("couponcode").value = couponCode
+          
+          document.getElementById(`${couponId}`).style.display='none'
+       
+         
+      {{!-- fetch(`https://digityx.shop/coupon/restrict-coupon?couponId=${couponId}&&userId=${userId}`) --}}
+  
+    
+    
+  }
+</script>
+
+<script>
+  function toggles(){
+    document.getElementById("addr").classList.toggle('shows')
+  }
+</script>
+
+<script>
+
+  const addressError = document.getElementById("addressError").value
+  console.log(addressError)
+
+  if(addressError){
+   Swal.fire("Address Not Found!");
+   document.getElementById('checkoutButton').disabled=true
+  }
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+
+  document.getElementById("AddressValidateForm").addEventListener('submit',function(e){
+   e.preventDefault()
+  let user = {{{user}}}
+     const state = document.getElementById('state').value
+     const country = document.getElementById('country').value
+     const firstName = document.getElementById("firstname").value;
+     const firstNameErr = document.querySelector(".firstnameErr");
+     const lastName = document.getElementById("lastname").value;
+     const LastnameErr = document.getElementById("lastnameErr");
+     const address = document.querySelector(".address").value;
+     const addressErr = document.getElementById("addressErr")
+     const email = document.getElementById("email").value;
+     const emailErr = document.getElementById("emailErr")
+     const phonenumber = document.getElementById("phonenumber").value;
+     const phoneNumberErr = document.getElementById("phonenumberErr")
+     const zipcode = document.getElementById("zipcode").value;
+     const zipcodeErr = document.getElementById("zipcodeErr")
+  
+    let error=false;
+     
+     //functions
+
+     function firstNameError(msg){
+      e.preventDefault()
+      firstNameErr.innerHTML=msg
+      error=true
+     }
+     function lastNameError(msg){
+      e.preventDefault()
+      LastnameErr.innerHTML=msg
+      error=true
+     }
+     function addressError(msg){
+      e.preventDefault()
+      addressErr.innerHTML=msg
+      error=true
+     }
+     function phoneNumberError(msg){
+      e.preventDefault()
+      phoneNumberErr.innerHTML=msg;
+      error=true
+     }
+     function zipcodeError(msg){
+      e.preventDefault()
+      zipcodeErr.innerHTML=msg
+      error=true
+     }
+    function emailError(msg){
+      e.preventDefault()
+      emailErr.innerHTML=msg
+      error=true
+     } 
+
+
+///firstname
+     if(firstName==''){
+      firstNameError('Required');
+     }
+     else if(/^\s+$/.test(firstName)){
+  firstNameError("Enter a valid Name")
+}
+     else if(/[^a-zA-Z0-9\s]/.test(firstName)){
+          firstNameError("Special Character not allowed")
+     }
+     else if(/[0-9]/.test(firstName)){
+           firstNameError('Numbers Not allowed')
+     }
+     else if(firstName.length<6){
+      firstNameError('Must be 6 above character')
+     }
+     else{
+      firstNameErr.innerHTML=''
+     }
+//lastname
+if(lastName==''){
+  lastNameError('Required')
+}
+     else if(/^\s+$/.test(lastName)){
+  lastNameError("Enter a valid LastName")
+}
+ else if(/[^a-zA-Z0-9\s]/.test(lastName)){
+          lastNameError("Special Character not allowed")
+     }
+      else if(/[0-9]/.test(lastName)){
+           lastNameError('Numbers Not allowed')
+     }
+ 
+     else if(lastName.length>10){
+        lastNameError('Maximum 10 allowed')
+     }
+     else{
+      LastnameErr.innerHTML=''
+     }
+
+     //address
+   if(address==''){
+   
+    addressError('Required')
+   }
+   else if(address.length<10){
+         addressError('Minimum 10 Charactor required')
+   }
+ 
+   else{
+    address.innerHTML=''
+   } 
+
+   //phonenumber
+
+   if(phonenumber==''){
+    phoneNumberError('Required')
+   }
+   else if(phonenumber.length!=10){
+    phoneNumberError('Must be 10 Digit')
+   }
+   else if(/^0+$/.test(phonenumber)){
+  phoneNumberError("Only contains zero")
+}
+   else{
+    phoneNumberErr.innerHTML=''
+   }
+
+   //zipcode
+
+   if(zipcode==''){
+    zipcodeError("Required")
+   }
+   else{
+    zipcodeErr.innerHTML=''
+   }
+   //email
+
+   if(email==''){
+    emailError('Required')
+   }
+   else if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)==false){
+    emailError('Enter Valid Email Address')
+   }
+   else{
+    emailErr.innerHTML=''
+   }
+
+  if(error==false){
+
+      fetch('https://digityx.shop/profile/updateAddress',{
+      method:'POST',
+      headers:{
+      'Content-Type':'application/json'
+      },
+      body:JSON.stringify({
+        user:user,
+        firstname:firstName,
+        lastname:lastName,
+        email:email,
+        address:address,
+        zipcode:zipcode,
+        phonenumber:phonenumber,
+        city:"calicut",
+        state:state,
+        country:country
+
+
+      })
+     }).then(async(result)=>{
+      return result.json()
+     }).then((data)=>{
+      console.log(data)
+      if(data.success==true){
+        //swal
+       Swal.fire({
+  position: "top",
+  icon: "success",
+  title: "Your work has been saved",
+  showConfirmButton: false,
+  timer: 1500
+});
+setTimeout(()=>{
+location.reload()
+},1500)
+ 
+      }
+
+      else if(data.success==false){
+Swal.fire(`${data.error}`);
+
+      }
+     })
+  } 
+
+})
+</script> 
+
+
+<script>
+ var user =document.querySelector(".userId").innerHTML;
+ console.log(user)
+
+ fetch(`https://digityx.shop/cart/address-exists?id=${user}`).then((data)=>{
+  return data.json()
+ })
+.then((res)=>{
+
+   const firstName = document.getElementById("firstname").value;
+     
+     const Lastname = document.getElementById("lastname").value;
+ 
+     const address = document.querySelector(".address").value;
+
+     const email = document.getElementById("email").value;
+   
+     const phonenumber = document.getElementById("phonenumber").value;
+    
+     const zipcode = document.getElementById("zipcode").value;
+    
+  console.log(res)
+  if(res.address==false){
+    document.getElementById('saveAddress').style.display = 'inline'
+
+
+  }
+})
+</script>
+
+<script>
+  function addReferal(){
+      const total = document.getElementById("total").innerHTML;
+      console.log(total)
+    const id   = document.getElementById("referalcode").value;
+     fetch(`https://digityx.shop/offer/applyReferal?id=${id}&&total=${total}`).then((result)=>{
+      return result.json()
+     }).then((data)=>{
+      console.log(data)
+      document.getElementById("total").innerHTML=parseInt(total-data.amount)
+      document.getElementById("t").value=parseInt(total-data.amount)
+      document.getElementById("referalbonus").value=data.amount
+      document.getElementById("ref").innerHTML=data.amount
+      document.getElementById("referal").value = id;
+     })
+
+  }
+</script>
+<script>
+  function changeAddress(id){
+    document.getElementById("chooseAddress").value=id
+    fetch(`https://digityx.shop/profile/changeAddress?id=${id}`)
+  }
+</script>
+
+
+<script>
+  function checkQuantity(e){
+    e.preventDefault()
+
+
+    fetch('https://digityx.shop/cart/checkCheckout').then((result)=>{
+      return result.json()
+    }).then((data)=>{
+    
+        console.log(data)
+        if(data.success==true){
+          console.log('dasdfuasdf')
+          document.getElementById('placeOrderForm').submit()
+        }
+        else{
+         Swal.fire({
+  title: "OUT OF STOCK",
+  text: `${data.result}`,
+  icon: "warning",
+  showCancelButton: true,
+  confirmButtonColor: "#3085d6",
+  cancelButtonColor: "#d33",
+  confirmButtonText: "Yes, delete it!"
+}).then((result) => {
+  if (result.isConfirmed) {
+//deleting cart
+
+fetch('https://digityx.shop/cart/updateCart').then(()=>{
+  Swal.fire({
+  position: "top",
+  icon: "success",
+  title: "Successfully Deleted",
+  showConfirmButton: false,
+  timer: 2000
+});
+
+setTimeout(()=>{
+ location.reload()
+},1500)
+})
+    
+  
+  }
+});
+        }
+    })
+
+
+   
+  }
+</script>
+
+<script>
+  let total = document.getElementById("total").innerHTML;
+ 
+  let walle =  {{{walletTotal}}}
+  console.log(walle)
+</script>
+
+
+
+

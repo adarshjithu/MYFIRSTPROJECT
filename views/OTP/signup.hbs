@@ -1,0 +1,621 @@
+<html lang="en">
+
+     <head>
+
+          <meta charset="UTF-8" />
+
+          <title>CodePen - Animated Login Form using Html &amp; CSS Only</title>
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+          <link rel="stylesheet" href="./style.css" />
+
+     </head>
+     <style>@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); * { margin: 0; padding: 0;
+          box-sizing: border-box; font-family: 'Quicksand', sans-serif; } body { display: flex; justify-content: center; align-items: center;
+          min-height: 100vh; background: #000; } section { position: absolute; width: 100vw; height: 100vh; display: flex; justify-content: center;
+          align-items: center; gap: 2px; flex-wrap: wrap; overflow: hidden; } section::before { content: ''; position: absolute; width: 100%; height:
+          100%; background: linear-gradient(#000,#0f0,#000); animation: animate 5s linear infinite; } @keyframes animate { 0% { transform:
+          translateY(-100%); } 100% { transform: translateY(100%); } } section span { position: relative; display: block; width: calc(6.25vw - 2px);
+          height: calc(6.25vw - 2px); background: #181818; z-index: 2; transition: 1.5s; } section span:hover { background: #0f0; transition: 0s; }
+          section .signin { position: absolute; width: 400px; background: #222; z-index: 1000; display: flex; justify-content: center; align-items:
+          center; padding: 40px; border-radius: 4px; box-shadow: 0 15px 35px rgba(0,0,0,9); } section .signin .content { position: relative; width:
+          100%; display: flex; justify-content: center; align-items: center; flex-direction: column; gap: 40px; } section .signin .content h2 {
+          font-size: 2em; color: #0f0; text-transform: uppercase; } section .signin .content .form { width: 100%; display: flex; flex-direction:
+          column; gap: 25px; } section .signin .content .form .inputBox { position: relative; width: 100%; } section .signin .content .form .inputBox
+          input { position: relative; width: 100%; background: #333; border: none; outline: none; padding: 25px 10px 7.5px; border-radius: 4px; color:
+          #fff; font-weight: 500; font-size: 1em; } section .signin .content .form .inputBox i { position: absolute; left: 0; padding: 15px 10px;
+          font-style: normal; color: #aaa; transition: 0.5s; pointer-events: none; } .signin .content .form .inputBox input:focus ~ i, .signin
+          .content .form .inputBox input:valid ~ i { transform: translateY(-7.5px); font-size: 0.8em; color: #fff; } .signin .content .form .links {
+          position: relative; width: 100%; display: flex; justify-content: space-between; } .signin .content .form .links a { color: #fff;
+          text-decoration: none; } .signin .content .form .links a:nth-child(2) { color: #0f0; font-weight: 600; } .signin .content .form .inputBox
+          input[type="submit"] { padding: 10px; background: #0f0; color: #000; font-weight: 600; font-size: 1.35em; letter-spacing: 0.05em; cursor:
+          pointer; } input[type="submit"]:active { opacity: 0.6; } @media (max-width: 900px) { section span { width: calc(10vw - 2px); height:
+          calc(10vw - 2px); } } @media (max-width: 600px) { section span { width: calc(20vw - 2px); height: calc(20vw - 2px); } }
+          .password-input:hover{
+               box-shadow: 1px 1px 10px #00FF00;
+
+          }
+          .password-checklist{
+               position: absolute;
+               border: 1px solid white;
+               top: calc(100%+10px);
+               width: 100%;
+               padding: 20px 30px;
+             
+               border-radius: 5px;
+               opacity: 0;
+               pointer-events: none;
+               transform: translateY(20px);
+               transition: .5s ease;
+
+          }
+          .password-input:focus ~ .password-checklist{
+           opacity: 1;
+           transform: translateY(0); 
+           position: relative;   
+
+          }
+          .checklist-title{
+               font-size: 15px;
+               color: white;
+             
+          }
+          .checklist{
+               list-style: none;
+
+          }
+          .list-item{
+               padding-left: 30px;
+               color: white;
+               font-size: 14px;
+
+          }
+          .list-item::before{
+               content: '\f00d';
+               font-family: fontAwesome;
+               margin: 8px 0;
+               margin-left: -30px;
+               width: 20px;
+               margin-right: 10px;
+          }
+          .list-item.checked{
+               opacity: 0.5;
+               color:  #00FF00;
+          }
+          .list-item.checked::before{
+               content: '\f00c';
+          }
+          p{
+               display: flex;
+               justify-content: center;
+              font-weight: 600;
+
+          }
+          p{
+              font-size: 12px;
+              margin: 0px;
+              padding: 0px;
+          }
+          input{
+               height: 40px;
+          }
+
+          </style>
+
+     <body>
+          <!-- partial:index.partial.html -->
+
+          <section>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+               <span></span>
+
+               <div class="signin" >
+
+                    <div class="content" style="margin: 0px;">
+
+
+                         <div class="form" >
+                         <h2 style="margin: 0px;">Sign In</h2>
+                            <form action="/user/otp/signup" method="post" id="submitForm">
+
+              
+
+                              <div class="inputBox">
+                               <p id="usernameErr" style="color: red;"></p>
+                               <input type="text" name="username" id="username" />
+                                   <i>Username</i>
+                                   </div>
+
+                              <div class="inputBox">
+
+                                   {{#if err}}
+                                   <p class="text-danger">User Already Exists</56>
+                                   {{/if}}
+                                  <p id="emailErr" style="color: red;"></p>
+                                   <input type="email" name="email" style="text-transform: none;" id="email" />
+                                   <i>Email</i>
+
+                              </div>
+                              <div class="inputBox">
+                                    <p id="phonenumberErr" style="color: red;"></p>
+                                   <input type="number" name="phonenumber" id="phonenumber" />
+                                   <i>PhoneNumber</i>
+
+                              </div>
+                              {{!-- password --}}
+                                
+                              <div class="inputBox password-input-box">
+                                    <p id="passwordErr" style="color: red;"></p>
+                                   <input type="password" name="password" class="password-input" id="password"  />
+                           
+
+                                   <i>Password</i>
+                                   <div class="password-checklist"  onclick="clicked()">
+                                        <h3 class="checklist-title">Helloworld</h3>
+                                        <ul class="checklist">
+                                             <li class="list-item">At least 8 charactor long</li>
+                                             <li class="list-item">At least 1 number</li>
+                                             <li class="list-item">At least 1 lowercase letter</li>
+                                             <li class="list-item">At least 1 uppercase letter</li>
+                                             <li class="list-item">At least 1 charactor</li>
+                                        </ul>
+                                   </div>
+
+                              </div>
+                                {{!-- passwor --}}
+
+                              <div class="inputBox">
+                                    <p id="confirmpasswordErr" style="color: red;"></p>
+                                   <input type="password" name="confirmpassword" id="confirmpassword" />
+                                   <i>Confirm Password</i>
+
+                              </div>
+
+                              <div class="links">
+                                   <a href="/user_forgotpassword">Forgot Password</a>
+                                   <a href="user_login">Signup</a>
+
+                              </div>
+
+                              <div class="inputBox">
+
+                               
+                                   <button type="submit" class="btn" style="background-color: #00FF00;color: rgb(8, 8, 8);width: 100%;font-size: 20px;">Signup</button>
+
+                              </div>
+                                            </form>
+
+                         </div>
+
+                    </div>
+
+               </div>
+
+          </section>
+          <!-- partial -->
+          <script>
+               const passwordInput = document.querySelector(".password-input")
+         let showPasswordBtn = document.querySelector('.show-passord')
+          
+            function showPassword(){
+           document.querySelector(".show-password").classList.toggle('fa-eye-slash') 
+           document.querySelector(".show-password").classList.toggle('fa-eye') 
+             
+              passwordInput.type = passwordInput.type =='password'?'text':'password'
+            }
+        
+               let passwordCheckList = document.querySelectorAll('.list-item')
+
+        let validationRegex = [
+        {regex:/.{8,}/} , //8letters
+        {regex:/[0-9]/},//numbers
+        {regex:/[a-z]/},
+        {regex:/[A-Z]/},
+        {regex:/[^A-Za-z0-9]/}
+        ]
+
+        passwordInput.addEventListener("keyup",()=>{
+            validationRegex.forEach((item,i)=>{
+           let isValid = item.regex.test(passwordInput.value);
+          if(isValid){
+               passwordCheckList[i].classList.add("checked")
+          }
+          else{
+               passwordCheckList[i].classList.remove("checked")
+          }
+          
+            })
+        })
+          </script>
+
+          <script>
+               document.getElementById("submitForm").addEventListener('submit',(e)=>{
+
+                  
+                    let username = document.getElementById('username').value;
+                    let email = document.getElementById('email').value;
+                    let phonenumber = document.getElementById('phonenumber').value;
+                    let password = document.getElementById('password').value;
+                    let confirmpassword = document.getElementById('confirmpassword').value;
+                    console.log(confirmpassword,password)
+
+                    //errors
+                    let usernamErr = document.getElementById("usernameErr")
+                    let emailErr = document.getElementById("emailErr")
+                    let phonenumberErr = document.getElementById("phonenumberErr")
+                    let passwordErr = document.getElementById("passwordErr")
+                    let confirmpasswordErr = document.getElementById("confirmpasswordErr")
+                    //checking all the emptyfield
+                  
+                           
+                     var elements = document.getElementsByTagName('input')
+                     var elements1 = document.getElementsByTagName('p')
+                     console.log(elements1)
+
+                   
+                        for(i=0;i<elements.length;i++){
+
+                             if(elements[i].value  == ''){
+                              e.preventDefault()
+                              elements1[i].innerHTML='Required'
+                             }
+                             else{
+                              elements1[i].innerHTML=''
+                             }
+                        }
+
+
+
+
+                          //length
+                       if(username.length<4&&username!==''){
+                         e.preventDefault()
+                         usernamErr.innerHTML = `${usernamErr.innerHTML} 
+                         <br>Minimum 4 charactor required`
+                       }
+                       else{
+                      
+                       }
+                       //number
+                  if(/[0-9]/.test(username)){
+                         e.preventDefault()
+                         usernamErr.innerHTML =`${usernamErr.innerHTML}, <br>Number not allowed`
+                       }
+                       else{
+
+                         
+                       }
+                       //special charecter
+                       if(/[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/.test(username)){
+                          e.preventDefault()
+                          usernamErr.innerHTML = `${usernamErr.innerHTML} <br>Special character not allowed`
+                       }
+                       else{
+                        
+                       }
+                       if( /\s/.test(username)==true){
+                          e.preventDefault()
+                          usernamErr.innerHTML = `${usernamErr.innerHTML} <br>Space not allowed`
+                       }
+                       else{
+                        
+                       }
+                       //email
+
+                       if(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+
+                       }
+                       else{
+                        e.preventDefault()
+                          emailErr.innerHTML = `${emailErr.innerHTML} <br>Invalid Email address` 
+                       }
+                       //mobilenumber
+                      if(phonenumber.length!==10&&phonenumber!=''){
+                         phonenumberErr.innerHTML = `${phonenumberErr.innerHTML} <br>Invalid mobilenumber` 
+                      }
+                      if(/^\d+$/.test(phonenumber)==false){
+                              phonenumberErr.innerHTML = `${phonenumberErr.innerHTML} <br> Numbers required`    
+                      }
+
+                      //password
+                        let validationR= [
+        {regex:/.{8,}/} , //8letters
+        {regex:/[0-9]/},//numbers
+        {regex:/[a-z]/},
+        {regex:/[A-Z]/},
+        {regex:/[^A-Za-z0-9]/}
+        ]
+
+                      if(/.{8,}/.test(password)==false){
+                         e.preventDefault()
+                      }
+                      if(/[0-9]/.test(password)==false){
+                         e.preventDefault()
+                      }
+                      if(/[a-z]/.test(password)==false){
+                         e.preventDefault()
+                      }
+                      if(/[A-Z]/.test(password)==false){
+                         e.preventDefault()
+                      }
+                      if(/[^A-Za-z0-9]/.test(password)==false){
+                         e.preventDefault()
+                      }
+                       if(password!==confirmpassword){
+                         e.preventDefault()
+                         confirmpasswordErr.innerHTML = 'Password donot match'
+                       }
+               })
+                       
+
+              ///confirm password
+                
+//------------------------------------username------------------------------------------------------
+                     
+
+                    
+               
+          </script>
+
+     </body>
+
+
+
+</html>
